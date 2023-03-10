@@ -9,7 +9,7 @@ if not dap_ok then
 end
 
 -- local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
-local DEBUGGER_PATH = "/Users/noah/GitHub/vscode-js-debug"
+local DEBUGGER_PATH = vim.fn.expand "$HOME/GitHub/vscode-js-debug"
 
 dap_vscode_js.setup {
   -- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"

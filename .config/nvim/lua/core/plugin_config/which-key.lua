@@ -37,15 +37,42 @@ mappings["f"] = {
   f = { "<cmd>Telescope find_files<cr>", "Find files" },
   H = { "<cmd>Telescope highlights<cr>", "Highlights" },
   h = { "<cmd>Telescope help_tags<cr>", "Help" },
-  i = { "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", "Media" },
+  -- i = { "<cmd>Telescope media_files<cr>", "Media" },
   k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
   l = { "<cmd>Telescope resume<cr>", "Last Search" },
   M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
   p = { "<cmd>Telescope projects<cr>", "Find Projects" },
-  R = { "<cmd>Telescope registers<cr>", "Rjgisters" },
+  R = { "<cmd>Telescope registers<cr>", "Registers" },
   r = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
   s = { "<cmd>Telescope grep_string<cr>", "Find String" },
   t = { "<cmd>Telescope live_grep<cr>", "Find Text" },
+}
+
+mappings["g"] = {
+  name = "Git",
+  b = { "<cmd>Telescope git_branches<cr>", "Checkout Branch" },
+  C = {
+    "<cmd>Telescope git_bcommits<cr>",
+    "Checkout Commit(for Current File)",
+  },
+  c = { "<cmd>Telescope git_commits<cr>", "Checkout Commit" },
+  d = {
+    "<cmd>Gitsigns diffthis HEAD<cr>",
+    "Git Diff",
+  },
+  g = { "<cmd>lua require'core.plugin_config.toggleterm'.lazygit_toggle()<cr>", "Lazygit" },
+  j = { "<cmd>lua require'gitsigns'.next_hunk({navigation_message = false})<cr>", "Next Hunk" },
+  k = { "<cmd>lua require'gitsigns'.prev_hunk({navigation_message = false})<cr>", "Prev Hunk" },
+  l = { "<cmd>lua require'gitsigns'.blame_line()<cr>", "Blame" },
+  o = { "<cmd>Telescope git_status<cr>", "Open Changed File" },
+  p = { "<cmd>lua require'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
+  R = { "<cmd>lua require'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
+  r = { "<cmd>lua require'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
+  s = { "<cmd>lua require'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+  u = {
+    "<cmd>lua require'gitsigns'.undo_stage_hunk()<cr>",
+    "Undo Stage Hunk",
+  },
 }
 
 mappings["l"] = {

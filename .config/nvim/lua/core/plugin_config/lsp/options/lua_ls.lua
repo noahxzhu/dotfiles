@@ -1,6 +1,18 @@
 local opts = {
   settings = {
     Lua = {
+      format = {
+        enable = false,
+        -- Put format options here
+        -- NOTE: the value should be STRING!!
+        defaultConfig = {
+          indent_style = "space",
+          indent_size = "2",
+          quote_style = "double",
+          continuation_indent = "2",
+          call_arg_parentheses = "remove",
+        },
+      },
       runtime = {
         -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
         version = "LuaJIT",

@@ -65,13 +65,15 @@ return packer.startup(function(use)
 
   use { "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" }
 
+  -- Telescope
   use {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.0",
+    tag = "0.1.1",
     requires = { { "nvim-lua/plenary.nvim" } },
   }
+  use "BurntSushi/ripgrep"
   use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
-  use "nvim-telescope/telescope-media-files.nvim"
+  use { "nvim-telescope/telescope-media-files.nvim", requires = "nvim-lua/popup.nvim" }
 
   use "folke/which-key.nvim"
 

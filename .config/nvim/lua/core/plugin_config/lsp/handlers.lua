@@ -26,35 +26,35 @@ cmp.setup {
     end,
   },
   mapping = {
-        ["<tab>"] = function(fallback)
+    ["<tab>"] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       else
         fallback()
       end
     end,
-        ["<s-tab>"] = function(fallback)
+    ["<s-tab>"] = function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       else
         fallback()
       end
     end,
-        ["<c-j>"] = function(fallback)
+    ["<c-j>"] = function(fallback)
       if cmp.visible() then
         cmp.scroll_docs(4)
       else
         fallback()
       end
     end,
-        ["<c-k>"] = function(fallback)
+    ["<c-k>"] = function(fallback)
       if cmp.visible() then
         cmp.scroll_docs(-4)
       else
         fallback()
       end
     end,
-        ["<cr>"] = function(fallback)
+    ["<cr>"] = function(fallback)
       if cmp.visible() then
         cmp.confirm()
       else
@@ -80,13 +80,13 @@ cmp.setup {
 
       -- NOTE: order matters
       vim_item.menu = ({
-            nvim_lsp = "",
-            nvim_lua = "",
-            luasnip = "",
-            buffer = "",
-            path = "",
-            emoji = "",
-          })[entry.source.name]
+        nvim_lsp = "",
+        nvim_lua = "",
+        luasnip = "",
+        buffer = "",
+        path = "",
+        emoji = "",
+      })[entry.source.name]
       return vim_item
     end,
   },
@@ -115,18 +115,13 @@ end
 M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
 local function lsp_keymaps(bufnr)
-  local opts = { silent = true, buffer = bufnr }
-
-  vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
-  vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
-  vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
-  vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
-  vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
-  vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", opts)
-  vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-  vim.keymap.set("n", "<leader>dj", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
-  vim.keymap.set("n", "<leader>dk", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
-  vim.keymap.set("n", "<leader>li", "<cmd>LspInfo<cr>", opts)
+  local keymaps = require "core.keymaps"
+  for mode_name, mode_char in pairs(keymaps.mode_map) do
+    for key, remap in pairs(keymaps.buffer_mappings[mode_name]) do
+      local opts = { buffer = bufnr, desc = remap[2], silent = true }
+      vim.keymap.set(mode_char, key, remap[1], opts)
+    end
+  end
 end
 
 M.on_attach = function(client, bufnr)

@@ -1,3 +1,5 @@
+local M = {}
+
 local opts = { silent = true }
 
 vim.g.mapleader = " "
@@ -29,14 +31,23 @@ vim.keymap.set("n", "<s-h>", "<cmd>bprevious<cr>", opts)
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
 
--- NvimTree
-vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", opts)
+M.mode_map = {
+  normal_mode = "n",
+  insert_mode = "i",
+  visual_mode = "v",
+}
 
--- Telescope
-vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
-vim.keymap.set("n", "<leader>ft", "<cmd>Telescope live_grep<cr>", opts)
-vim.keymap.set("n", "<leader>fp", "<cmd>Telescope projects<cr>", opts)
-vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts)
+M.buffer_mappings = {
+  normal_mode = {
+    ["gd"] = { vim.lsp.buf.definition, "Goto Definition" },
+    ["gD"] = { vim.lsp.buf.declaration, "Goto Declaration" },
+    ["gr"] = { vim.lsp.buf.references, "Goto References" },
+    ["gI"] = { vim.lsp.buf.implementation, "Goto Implementation" },
+    ["gs"] = { vim.lsp.buf.signature_help, "Show Signature Help" },
+    ["K"] = { vim.lsp.buf.hover, "Show Hover" },
+  },
+  insert_mode = {},
+  visual_mode = {},
+}
 
--- Packer
-vim.keymap.set("n", "<leader>ps", "<cmd>PackerSync<cr>", opts)
+return M

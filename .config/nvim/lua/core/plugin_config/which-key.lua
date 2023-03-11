@@ -69,6 +69,7 @@ mappings["g"] = {
   R = { "<cmd>lua require'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
   r = { "<cmd>lua require'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
   s = { "<cmd>lua require'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+  t = { "<cmd>lua require'gitsigns'.toggle_current_line_blame()<cr>", "Toggle Current Line Blame" },
   u = {
     "<cmd>lua require'gitsigns'.undo_stage_hunk()<cr>",
     "Undo Stage Hunk",

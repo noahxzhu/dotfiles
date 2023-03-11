@@ -37,6 +37,19 @@ M.mode_map = {
   visual_mode = "v",
 }
 
+M.show_documentation = function()
+  local filetype = vim.bo.filetype
+  if vim.tbl_contains({ "vim", "help" }, filetype) then
+    vim.cmd("h " .. vim.fn.expand "<cword>")
+  elseif vim.tbl_contains({ "man" }, filetype) then
+    vim.cmd("Man " .. vim.fn.expand "<cword>")
+  elseif vim.fn.expand "%:t" == "Cargo.toml" and require("crates").popup_available() then
+    require("crates").show_popup()
+  else
+    vim.lsp.buf.hover()
+  end
+end
+
 M.buffer_mappings = {
   normal_mode = {
     ["gd"] = { vim.lsp.buf.definition, "Goto Definition" },
@@ -44,7 +57,7 @@ M.buffer_mappings = {
     ["gr"] = { vim.lsp.buf.references, "Goto References" },
     ["gI"] = { vim.lsp.buf.implementation, "Goto Implementation" },
     ["gs"] = { vim.lsp.buf.signature_help, "Show Signature Help" },
-    ["K"] = { vim.lsp.buf.hover, "Show Hover" },
+    ["K"] = { "<cmd>lua require'core.keymaps'.show_documentation()<cr>", "Show Hover" },
   },
   insert_mode = {},
   visual_mode = {},

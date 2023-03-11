@@ -35,10 +35,12 @@ return packer.startup(function(use)
   use { "catppuccin/nvim", as = "catppuccin" }
   use "rebelot/kanagawa.nvim"
   use "shaunsingh/nord.nvim"
+  use "folke/tokyonight.nvim"
 
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 
   use "windwp/nvim-autopairs"
+  use "windwp/nvim-ts-autotag"
   use "norcalli/nvim-colorizer.lua"
   use "numToStr/Comment.nvim"
   use {

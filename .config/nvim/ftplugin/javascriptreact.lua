@@ -1,7 +1,4 @@
-local ok, which_key = pcall(require, "which-key")
-if not ok then
-  return
-end
+local wk = require "which-key"
 
 local opts = {
   prefix = "<leader>",
@@ -10,13 +7,13 @@ local opts = {
 local mappings = {
   C = {
     name = "Javascript React",
-    f = { "<cmd>TypescriptFixAll<Cr>", "FixAll" },
-    g = { "<cmd>TypescriptGoToSourceDefinition<Cr>", "GoToSourceDefinition" },
-    i = { "<cmd>TypescriptAddMissingImports<Cr>", "AddMissingImports" },
+    f = { "<cmd>TypescriptFixAll<cr>", "FixAll" },
+    g = { "<cmd>TypescriptGoToSourceDefinition<cr>", "GoToSourceDefinition" },
+    i = { "<cmd>TypescriptAddMissingImports<cr>", "AddMissingImports" },
     o = { "<cmd>TypescriptOrganizeImports<cr>", "OrganizeImports" },
-    r = { "<cmd>TypescriptRenameFile<Cr>", "RenameFile" },
-    u = { "<cmd>TypescriptRemoveUnused<Cr>", "RemoveUnused" },
+    r = { "<cmd>TypescriptRenameFile<cr>", "RenameFile" },
+    u = { "<cmd>TypescriptRemoveUnused<cr>", "RemoveUnused" },
   },
 }
 
-which_key.register(mappings, opts)
+wk.register(mappings, opts)

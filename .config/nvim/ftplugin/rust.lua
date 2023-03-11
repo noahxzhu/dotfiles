@@ -1,7 +1,4 @@
-local ok, which_key = pcall(require, "which-key")
-if not ok then
-  return
-end
+local wk = require "which-key"
 
 local opts = {
   prefix = "<leader>",
@@ -10,20 +7,20 @@ local opts = {
 local mappings = {
   C = {
     name = "Rust",
-    c = { "<cmd>RustOpenCargo<Cr>", "Open Cargo" },
-    D = { "<cmd>RustOpenExternalDocs<Cr>", "Open Docs" },
-    d = { "<cmd>RustDebuggables<Cr>", "Debuggables" },
-    m = { "<cmd>RustExpandMacro<Cr>", "Expand Macro" },
-    o = { "<cmd>RustOpenExternalDocs<Cr>", "Open External Docs" },
-    p = { "<cmd>RustParentModule<Cr>", "Parent Module" },
+    c = { "<cmd>RustOpenCargo<cr>", "Open Cargo" },
+    D = { "<cmd>RustOpenExternalDocs<cr>", "Open Docs" },
+    d = { "<cmd>RustDebuggables<cr>", "Debuggables" },
+    m = { "<cmd>RustExpandMacro<cr>", "Expand Macro" },
+    o = { "<cmd>RustOpenExternalDocs<cr>", "Open External Docs" },
+    p = { "<cmd>RustParentModule<cr>", "Parent Module" },
     R = {
-      "<cmd>lua require('rust-tools/workspace_refresh')._reload_workspace_from_cargo_toml()<Cr>",
+      "<cmd>lua require('rust-tools/workspace_refresh')._reload_workspace_from_cargo_toml()<cr>",
       "Reload Workspace",
     },
-    r = { "<cmd>RustRunnables<Cr>", "Runnables" },
+    r = { "<cmd>RustRunnables<cr>", "Runnables" },
     t = { "<cmd>lua _CARGO_TEST()<cr>", "Cargo Test" },
-    v = { "<cmd>RustViewCrateGraph<Cr>", "View Crate Graph" },
+    v = { "<cmd>RustViewCrateGraph<cr>", "View Crate Graph" },
   },
 }
 
-which_key.register(mappings, opts)
+wk.register(mappings, opts)

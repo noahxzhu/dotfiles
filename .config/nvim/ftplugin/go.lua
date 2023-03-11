@@ -1,7 +1,4 @@
-local ok, which_key = pcall(require, "which-key")
-if not ok then
-  return
-end
+local wk = require "which-key"
 
 local opts = {
   prefix = "<leader>",
@@ -10,16 +7,16 @@ local opts = {
 local mappings = {
   C = {
     name = "Go",
-    A = { "<cmd>GoTestsAll<Cr>", "Add All Tests" },
-    a = { "<cmd>GoTestAdd<Cr>", "Add Test" },
-    c = { "<cmd>GoCmt<Cr>", "Generate Comment" },
-    e = { "<cmd>GoTestsExp<Cr>", "Add Exported Tests" },
+    A = { "<cmd>GoTestsAll<cr>", "Add All Tests" },
+    a = { "<cmd>GoTestAdd<cr>", "Add Test" },
+    c = { "<cmd>GoCmt<cr>", "Generate Comment" },
+    e = { "<cmd>GoTestsExp<cr>", "Add Exported Tests" },
     f = { "<cmd>GoMod tidy<cr>", "Tidy" },
-    G = { "<cmd>GoGenerate %<Cr>", "Go Generate File" },
-    g = { "<cmd>GoGenerate<Cr>", "Go Generate" },
-    i = { "<cmd>GoInstallDeps<Cr>", "Install Go Dependencies" },
+    G = { "<cmd>GoGenerate %<cr>", "Go Generate File" },
+    g = { "<cmd>GoGenerate<cr>", "Go Generate" },
+    i = { "<cmd>GoInstallDeps<cr>", "Install Go Dependencies" },
     t = { "<cmd>lua require('dap-go').debug_test()<cr>", "Debug Test" },
   },
 }
 
-which_key.register(mappings, opts)
+wk.register(mappings, opts)

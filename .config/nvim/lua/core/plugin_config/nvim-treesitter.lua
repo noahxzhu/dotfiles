@@ -7,6 +7,7 @@ configs.setup {
   ensure_installed = {
     "go",
     "gomod",
+    "java",
     "javascript",
     "lua",
     "python",

@@ -14,7 +14,7 @@ end
 local icons = require "core.icons"
 local logos = require "core.logos"
 
-dashboard.section.header.val = logos[8]
+dashboard.section.header.val = logos[2]
 
 dashboard.section.buttons.val = {
   button("f", icons.ui.FindFile .. " Find file", "<cmd>Telescope find_files<cr>"),

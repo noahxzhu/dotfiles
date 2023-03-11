@@ -88,6 +88,7 @@ return packer.startup(function(use)
   use "lukas-reineke/indent-blankline.nvim"
 
   use { "phaazon/hop.nvim", branch = "v2" }
+  use { "folke/noice.nvim", requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" } }
 
   -- Auto Completion
   use "hrsh7th/nvim-cmp" -- Autocompletion plugin
@@ -98,8 +99,6 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip"
   use "hrsh7th/cmp-nvim-lua"
 
-  use { "folke/noice.nvim", requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" } }
-
   -- Rust
   use "simrat39/rust-tools.nvim"
   use {
@@ -109,6 +108,7 @@ return packer.startup(function(use)
   }
 
   -- Go
+  use "leoluz/nvim-dap-go"
   use "olexsmir/gopher.nvim"
 
   -- Java

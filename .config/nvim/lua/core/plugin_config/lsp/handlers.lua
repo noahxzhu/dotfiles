@@ -95,6 +95,7 @@ cmp.setup {
     { name = "luasnip" }, -- For luasnip users.
     { name = "nvim_lua" },
     { name = "buffer" },
+    { name = "crates" },
   },
 }
 

@@ -76,7 +76,7 @@ return packer.startup(function(use)
   use "BurntSushi/ripgrep"
   use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
   use { "nvim-telescope/telescope-media-files.nvim", requires = "nvim-lua/popup.nvim" }
-
+  use "folke/neodev.nvim"
   use "folke/which-key.nvim"
 
   use "neovim/nvim-lspconfig" -- Configurations for Nvim LSP

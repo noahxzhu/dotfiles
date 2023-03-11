@@ -3,4 +3,6 @@ if not ok then
   return
 end
 
-nvim_autopairs.setup()
+nvim_autopairs.setup {
+  disable_filetype = { "TelescopePrompt", "vim" },
+}

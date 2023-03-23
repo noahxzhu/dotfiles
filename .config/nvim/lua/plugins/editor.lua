@@ -181,6 +181,45 @@ return {
     },
   },
 
+  {
+    "phaazon/hop.nvim",
+    branch = "v2",
+    event = "VeryLazy",
+    keys = {
+      {
+        "fc",
+        "<cmd>HopChar1<cr>",
+        mode = { "n", "x", "o" },
+      },
+      {
+        "fl",
+        "<cmd>HopLine<cr>",
+        mode = { "n", "x", "o" },
+      },
+      {
+        "fls",
+        "<cmd>HopLineStart<cr>",
+        mode = { "n", "x", "o" },
+      },
+      {
+        "fv",
+        "<cmd>HopVertical<cr>",
+        mode = { "n", "x", "o" },
+      },
+      {
+        "fp",
+        "<cmd>HopPattern<cr>",
+        mode = { "n", "x", "o" },
+      },
+      {
+        "fw",
+        "<cmd>HopWord<cr>",
+        mode = { "n", "x", "o" },
+      },
+    },
+    config = true,
+  },
+
   -- which-key
   {
     "folke/which-key.nvim",
@@ -189,29 +228,26 @@ return {
       plugins = { spelling = true },
     },
     config = function(_, opts)
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
       local wk = require "which-key"
       wk.setup(opts)
       local keymaps = {
         mode = { "n", "v" },
-        ["g"] = { name = "+goto" },
-        ["gz"] = { name = "+surround" },
-        ["]"] = { name = "+next" },
-        ["["] = { name = "+prev" },
-        ["<leader><tab>"] = { name = "+tabs" },
-        ["<leader>b"] = { name = "+buffer" },
-        ["<leader>c"] = { name = "+code" },
-        ["<leader>f"] = { name = "+file/find" },
-        ["<leader>g"] = { name = "+git" },
-        ["<leader>gh"] = { name = "+hunks" },
-        ["<leader>q"] = { name = "+quit/session" },
-        ["<leader>s"] = { name = "+search" },
-        ["<leader>u"] = { name = "+ui" },
-        ["<leader>w"] = { name = "+windows" },
-        ["<leader>x"] = { name = "+diagnostics/quickfix" },
+        ["f"] = { name = "+Hop" },
+        ["g"] = { name = "+Goto" },
+        ["]"] = { name = "+Next" },
+        ["["] = { name = "+Prev" },
+        ["<leader><tab>"] = { name = "+Tabs" },
+        ["<leader>c"] = { name = "+Code" },
+        ["<leader>d"] = { name = "+DAP" },
+        ["<leader>f"] = { name = "+File/Find" },
+        ["<leader>g"] = { name = "+Git" },
+        ["<leader>gh"] = { name = "+Hunks" },
+        ["<leader>l"] = { name = "+LSP" },
+        ["<leader>w"] = { name = "+Windows" },
+        ["<leader>x"] = { name = "+Diagnostics/Quickfix" },
       }
-      if Util.has "noice.nvim" then
-        keymaps["<leader>sn"] = { name = "+noice" }
-      end
       wk.register(keymaps)
     end,
   },
@@ -236,19 +272,24 @@ return {
           vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
         end
 
-        -- stylua: ignore start
         map("n", "]h", gs.next_hunk, "Next Hunk")
         map("n", "[h", gs.prev_hunk, "Prev Hunk")
-        map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
-        map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
+        map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<cr>", "Stage Hunk")
+        map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<cr>", "Reset Hunk")
+        map("n", "<leader>gg", "<cmd>lua require'util'.lazygit_toggle()<cr>", "Lazygit")
+        map("n", "<leader>go", "<cmd>Telescope git_status<cr>", "Stage Buffer")
         map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
         map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
         map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
         map("n", "<leader>ghp", gs.preview_hunk, "Preview Hunk")
-        map("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
+        map("n", "<leader>ghb", function()
+          gs.blame_line { full = true }
+        end, "Blame Line")
         map("n", "<leader>ghd", gs.diffthis, "Diff This")
-        map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
-        map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
+        map("n", "<leader>ghD", function()
+          gs.diffthis "~"
+        end, "Diff This ~")
+        map({ "o", "x" }, "ih", ":<c-u>Gitsigns select_hunk<cr>", "GitSigns Select Hunk")
       end,
     },
   },

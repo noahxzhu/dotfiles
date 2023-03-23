@@ -1,4 +1,6 @@
-return {
+local Util = require "util"
+
+local M = {
   -- snippets
   {
     "L3MON4D3/LuaSnip",
@@ -28,10 +30,10 @@ return {
       { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
     },
   },
+
   -- auto completion
   {
     "hrsh7th/nvim-cmp",
-    version = false, -- last release is way too old
     event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
@@ -52,14 +54,14 @@ return {
           end,
         },
         mapping = cmp.mapping.preset.insert {
-          ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
-          ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
-          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-Space>"] = cmp.mapping.complete(),
-          ["<C-e>"] = cmp.mapping.abort(),
-          ["<CR>"] = cmp.mapping.confirm { select = true }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-          ["<S-CR>"] = cmp.mapping.confirm {
+          ["<c-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
+          ["<c-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
+          ["<c-b>"] = cmp.mapping.scroll_docs(-4),
+          ["<c-f>"] = cmp.mapping.scroll_docs(4),
+          ["<c-space>"] = cmp.mapping.complete(),
+          ["<c-e>"] = cmp.mapping.abort(),
+          ["<cr>"] = cmp.mapping.confirm { select = true }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+          ["<s-cr>"] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
           }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
@@ -70,6 +72,7 @@ return {
           { name = "buffer" },
           { name = "path" },
           { name = "nvim_lua" },
+          { name = "crates" },
         },
         formatting = {
           format = function(_, item)
@@ -99,3 +102,5 @@ return {
   { "windwp/nvim-autopairs", event = "InsertEnter", config = true },
   { "windwp/nvim-ts-autotag", event = "InsertEnter", config = true },
 }
+
+return Util.merge(M, require "plugins.coding.lang")

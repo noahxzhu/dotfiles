@@ -67,4 +67,50 @@ M.get_root = function()
   return root
 end
 
+M.merge = function(...)
+  local values = { ... }
+  local ret = values[1]
+
+  for i = 2, #values, 1 do
+    local value = values[i]
+    for _, v in ipairs(value) do
+      table.insert(ret, v)
+    end
+  end
+  return ret
+end
+
+M.show_documentation = function()
+  local filetype = vim.bo.filetype
+  if vim.tbl_contains({ "vim", "help" }, filetype) then
+    vim.cmd("h " .. vim.fn.expand "<cword>")
+  elseif vim.tbl_contains({ "man" }, filetype) then
+    vim.cmd("Man " .. vim.fn.expand "<cword>")
+  elseif vim.fn.expand "%:t" == "Cargo.toml" and require("crates").popup_available() then
+    require("crates").show_popup()
+  else
+    vim.lsp.buf.hover()
+  end
+end
+
+M.lazygit_toggle = function()
+  local Terminal = require("toggleterm.terminal").Terminal
+  local lazygit = Terminal:new {
+    cmd = "lazygit",
+    hidden = true,
+    direction = "float",
+    float_opts = {
+      border = "none",
+      width = 100000,
+      height = 100000,
+    },
+    on_open = function()
+      vim.cmd "startinsert!"
+    end,
+    on_close = function() end,
+    count = 99,
+  }
+  lazygit:toggle()
+end
+
 return M

@@ -116,6 +116,7 @@ M.icons = {
     Gear = "",
     Gears = "",
     History = "",
+    Lazy = "󰒲",
     Lightbulb = "",
     LineLeft = "▏",
     LineMiddle = "│",

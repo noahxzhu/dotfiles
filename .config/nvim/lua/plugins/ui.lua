@@ -195,6 +195,7 @@ return {
         dashboard.button("r", require("config").icons.ui.History .. " Recent files", "<cmd>Telescope oldfiles<cr>"),
         dashboard.button("t", require("config").icons.ui.List .. " Find text", "<cmd>Telescope live_grep<cr>"),
         dashboard.button("c", require("config").icons.ui.Gear .. " Config", "<cmd>e $MYVIMRC<cr>"),
+        dashboard.button("l", require("config").icons.ui.Lazy .. " Lazy", "<cmd>Lazy<cr>"),
         dashboard.button("q", require("config").icons.ui.SignOut .. " Quit", "<cmd>qa<cr>"),
       }
       for _, button in ipairs(dashboard.section.buttons.val) do

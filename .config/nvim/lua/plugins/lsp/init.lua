@@ -70,6 +70,25 @@ return {
             },
           },
         },
+        gopls = {
+          cmd = { "gopls", "serve" },
+          settings = {
+            gopls = {
+              analyses = {
+                unusedparams = true,
+              },
+              staticcheck = true,
+              usePlaceholders = true,
+              gofumpt = true,
+              codelenses = {
+                generate = false,
+                gc_details = true,
+                test = true,
+                tidy = true,
+              },
+            },
+          },
+        },
       },
       -- you can do any additional lsp server setup here
       -- return true if you don't want this server to be setup with lspconfig
@@ -159,11 +178,36 @@ return {
       return {
         root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
         sources = {
-          nls.builtins.formatting.fish_indent,
-          nls.builtins.diagnostics.fish,
-          nls.builtins.formatting.stylua,
-          nls.builtins.formatting.shfmt,
+          -- code actions
+          nls.builtins.code_actions.gitsigns,
+
+          -- completion
+          nls.builtins.completion.luasnip,
+          nls.builtins.completion.spell,
+
+          -- diagnostics
+          nls.builtins.diagnostics.checkmake,
+          nls.builtins.diagnostics.codespell.with {
+            extra_args = { "--config", vim.fn.stdpath "config" .. "/.codespellrc" },
+          },
           nls.builtins.diagnostics.flake8,
+          nls.builtins.diagnostics.markdownlint,
+          nls.builtins.diagnostics.shellcheck,
+          nls.builtins.diagnostics.staticcheck,
+          nls.builtins.diagnostics.tsc,
+          nls.builtins.diagnostics.zsh,
+
+          -- formatting
+          nls.builtins.formatting.black,
+          nls.builtins.formatting.goimports,
+          nls.builtins.formatting.google_java_format,
+          nls.builtins.formatting.isort,
+          nls.builtins.formatting.jq,
+          nls.builtins.formatting.prettier,
+          nls.builtins.formatting.stylua,
+
+          -- hover
+          nls.builtins.hover.dictionary,
         },
       }
     end,
@@ -173,7 +217,7 @@ return {
   {
     "williamboman/mason.nvim",
     cmd = "Mason",
-    keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
+    keys = { { "<leader>lm", "<cmd>Mason<cr>", desc = "Mason" } },
     opts = {
       ensure_installed = {
         "stylua",

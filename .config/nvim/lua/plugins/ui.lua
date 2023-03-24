@@ -46,8 +46,14 @@ return {
         options = {
           theme = "auto",
           globalstatus = true,
-          component_separators = { left = "", right = "" },
-          section_separators = { left = "", right = "" },
+          component_separators = {
+            left = require("config").icons.ui.SlashSeparatorBack,
+            right = require("config").icons.ui.SlashSeparatorForward,
+          },
+          section_separators = {
+            left = require("config").icons.ui.TriangleLowerLeft,
+            right = require("config").icons.ui.TriangleLowerRight,
+          },
           disabled_filetypes = { statusline = { "NvimTree", "dashboard", "lazy", "alpha" } },
         },
         sections = {
@@ -219,6 +225,13 @@ return {
           end,
         })
       end
+
+      -- disable bufferline in alpha
+      vim.api.nvim_create_autocmd("FileType", {
+        group = vim.api.nvim_create_augroup("lazy_alpha", { clear = true }),
+        pattern = "alpha",
+        command = "set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2",
+      })
 
       require("alpha").setup(dashboard.opts)
 

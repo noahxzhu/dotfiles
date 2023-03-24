@@ -68,10 +68,3 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.spell = true
   end,
 })
-
--- disable bufferline in alpha dashboard
-vim.api.nvim_create_autocmd("FileType", {
-  group = augroup "alpha",
-  pattern = "alpha",
-  command = "set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2",
-})

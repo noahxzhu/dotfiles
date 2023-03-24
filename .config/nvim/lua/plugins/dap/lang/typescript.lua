@@ -2,10 +2,10 @@ return {
   {
     "mxsdev/nvim-dap-vscode-js",
     lazy = true,
-    event = { "BufEnter *.js", "BufEnter *.jsx", "BufEnter *.ts", "BufEnter *.tsx" },
     dependencies = {
       "mfussenegger/nvim-dap",
     },
+    ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
     config = function()
       local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
       -- local DEBUGGER_PATH = vim.fn.expand "$HOME/GitHub/vscode-js-debug"

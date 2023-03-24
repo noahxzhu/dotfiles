@@ -2,7 +2,7 @@ return {
   {
     "jose-elias-alvarez/typescript.nvim",
     lazy = true,
-    event = { "BufEnter *.js", "BufEnter *.jsx", "BufEnter *.ts", "BufEnter *.tsx" },
+    ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
     opts = {
       disable_commands = false, -- prevent the plugin from creating Vim commands
       debug = false, -- enable debug logging for commands
@@ -10,11 +10,6 @@ return {
         fallback = true, -- fall back to standard LSP definition on failure
       },
       server = { -- pass options to lspconfig's setup method
-        on_attach = require("util").on_attach(function(client, buffer)
-          require("plugins.lsp.format").on_attach(client, buffer)
-          require("plugins.lsp.keymaps").on_attach(client, buffer)
-        end),
-        -- capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
         settings = {
           typescript = {
             inlayHints = {
@@ -31,6 +26,12 @@ return {
       },
     },
     config = function(_, opts)
+      opts.server.on_attach = require("util").on_attach(function(client, buffer)
+        require("plugins.lsp.format").on_attach(client, buffer)
+        require("plugins.lsp.keymaps").on_attach(client, buffer)
+      end)
+      opts.server.capabilities =
+        require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
       require("typescript").setup(opts)
     end,
   },

@@ -1,3 +1,7 @@
 return {
-  { "mfussenegger/nvim-jdtls", lazy = true, event = { "BufEnter *.java" } },
+  {
+    "mfussenegger/nvim-jdtls",
+    lazy = true,
+    ft = { "java" },
+  },
 }

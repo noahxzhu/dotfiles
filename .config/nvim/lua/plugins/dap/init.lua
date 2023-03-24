@@ -6,6 +6,7 @@ local M = {
     lazy = true,
     dependencies = {
       "rcarriga/nvim-dap-ui",
+      "theHamsta/nvim-dap-virtual-text",
     },
     keys = {
       {
@@ -84,6 +85,11 @@ local M = {
     config = function()
       require("dapui").setup()
     end,
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    lazy = true,
+    config = true,
   },
 }
 

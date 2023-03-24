@@ -150,7 +150,7 @@ return {
       local mlsp = require "mason-lspconfig"
       local available = mlsp.get_available_servers()
 
-      local ensure_installed = {} ---@type string[]
+      local ensure_installed = {}
       for server, server_opts in pairs(servers) do
         if server_opts then
           server_opts = server_opts == true and {} or server_opts

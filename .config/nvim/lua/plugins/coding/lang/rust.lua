@@ -2,7 +2,7 @@ return {
   {
     "simrat39/rust-tools.nvim",
     lazy = true,
-    event = { "BufEnter *.rs" },
+    ft = { "rust" },
     opts = function()
       local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
       local codelldb_adapter = {
@@ -29,11 +29,6 @@ return {
           adapter = codelldb_adapter,
         },
         server = {
-          on_attach = require("util").on_attach(function(client, buffer)
-            require("plugins.lsp.format").on_attach(client, buffer)
-            require("plugins.lsp.keymaps").on_attach(client, buffer)
-          end),
-          capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
           settings = {
             ["rust-analyzer"] = {
               lens = {
@@ -47,6 +42,15 @@ return {
           },
         },
       }
+    end,
+    config = function(_, opts)
+      opts.server.on_attach = require("util").on_attach(function(client, buffer)
+        require("plugins.lsp.format").on_attach(client, buffer)
+        require("plugins.lsp.keymaps").on_attach(client, buffer)
+      end)
+      opts.server.capabilities =
+        require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+      require("rust-tools").setup(opts)
     end,
   },
   {

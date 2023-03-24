@@ -1,3 +1,7 @@
 return {
-  { "olexsmir/gopher.nvim", lazy = true, event = { "BufEnter *.go" } },
+  {
+    "olexsmir/gopher.nvim",
+    lazy = true,
+    ft = { "go" },
+  },
 }

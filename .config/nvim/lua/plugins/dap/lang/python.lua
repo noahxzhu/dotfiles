@@ -1,3 +1,10 @@
 return {
-  { "mfussenegger/nvim-dap-python", lazy = true, event = { "BufEnter *.py" } },
+  {
+    "mfussenegger/nvim-dap-python",
+    lazy = true,
+    dependencies = {
+      "mfussenegger/nvim-dap",
+    },
+    ft = { "python" },
+  },
 }

@@ -68,12 +68,12 @@ M.get_root = function()
 end
 
 M.merge = function(...)
-  local values = { ... }
-  local ret = values[1]
+  local arrays = { ... }
+  local ret = arrays[1]
 
-  for i = 2, #values, 1 do
-    local value = values[i]
-    for _, v in ipairs(value) do
+  for i = 2, #arrays, 1 do
+    local array = arrays[i]
+    for _, v in ipairs(array) do
       table.insert(ret, v)
     end
   end

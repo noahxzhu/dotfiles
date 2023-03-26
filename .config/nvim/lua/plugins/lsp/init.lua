@@ -1,3 +1,5 @@
+local opts_servers = require "plugins.lsp.opts"
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -30,78 +32,9 @@ return {
         timeout_ms = nil,
       },
       -- LSP Server Settings
-      ---@type lspconfig.options
-      servers = {
-        jsonls = {},
-        lua_ls = {
-          -- mason = false, -- set to false if you don't want this server to be installed with mason
-          settings = {
-            Lua = {
-              format = {
-                enable = false,
-                -- Put format options here
-                -- NOTE: the value should be STRING!!
-                defaultConfig = {
-                  indent_style = "space",
-                  indent_size = "2",
-                  quote_style = "double",
-                  continuation_indent = "2",
-                  call_arg_parentheses = "remove",
-                },
-              },
-              runtime = {
-                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-                version = "LuaJIT",
-              },
-              diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = { "vim" },
-                disable = { "missing-parameter" },
-              },
-              workspace = {
-                -- Make the server aware of Neovim runtime files
-                library = vim.api.nvim_get_runtime_file("", true),
-                checkThirdParty = false,
-              },
-              -- Do not send telemetry data containing a randomized but unique identifier
-              telemetry = {
-                enable = false,
-              },
-            },
-          },
-        },
-        gopls = {
-          cmd = { "gopls", "serve" },
-          settings = {
-            gopls = {
-              analyses = {
-                unusedparams = true,
-              },
-              staticcheck = true,
-              usePlaceholders = true,
-              gofumpt = true,
-              codelenses = {
-                generate = false,
-                gc_details = true,
-                test = true,
-                tidy = true,
-              },
-            },
-          },
-        },
-      },
+      servers = opts_servers,
       -- you can do any additional lsp server setup here
       -- return true if you don't want this server to be setup with lspconfig
-      ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
-      setup = {
-        -- example to setup with typescript.nvim
-        -- tsserver = function(_, opts)
-        --   require("typescript").setup({ server = opts })
-        --   return true
-        -- end,
-        -- Specify * to use this function as a fallback for any server
-        -- ["*"] = function(server, opts) end,
-      },
     },
     config = function(_, opts)
       -- setup autoformat
@@ -122,29 +55,12 @@ return {
       local servers = opts.servers
       local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-      local function setup(server)
+      local setup = function(server)
         local server_opts = vim.tbl_deep_extend("force", {
           capabilities = vim.deepcopy(capabilities),
         }, servers[server] or {})
 
-        if opts.setup[server] then
-          if opts.setup[server](server, server_opts) then
-            return
-          end
-        elseif opts.setup["*"] then
-          if opts.setup["*"](server, server_opts) then
-            return
-          end
-        end
         require("lspconfig")[server].setup(server_opts)
-      end
-
-      -- temp fix for lspconfig rename
-      -- https://github.com/neovim/nvim-lspconfig/pull/2439
-      local mappings = require "mason-lspconfig.mappings.server"
-      if not mappings.lspconfig_to_package.lua_ls then
-        mappings.lspconfig_to_package.lua_ls = "lua-language-server"
-        mappings.package_to_lspconfig["lua-language-server"] = "lua_ls"
       end
 
       local mlsp = require "mason-lspconfig"

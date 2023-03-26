@@ -46,7 +46,7 @@ end
 
 function M.on_attach(client, buffer)
   local Keys = require "lazy.core.handler.keys"
-  local keymaps = {} ---@type table<string,LazyKeys|{has?:string}>
+  local keymaps = {}
 
   for _, value in ipairs(M.get()) do
     local keys = Keys.parse(value)

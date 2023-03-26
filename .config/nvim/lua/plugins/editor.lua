@@ -1,5 +1,3 @@
-local Util = require "util"
-
 return {
   {
     "nvim-tree/nvim-tree.lua",

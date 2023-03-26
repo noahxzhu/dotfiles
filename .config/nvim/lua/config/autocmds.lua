@@ -1,5 +1,3 @@
--- This file is automatically loaded by plugins.init
-
 local function augroup(name)
   return vim.api.nvim_create_augroup("lazy_" .. name, { clear = true })
 end

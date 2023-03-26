@@ -19,7 +19,7 @@ local mappings = {
     },
     r = { "<cmd>RustRunnables<cr>", "Runnables" },
     t = { "<cmd>lua _CARGO_TEST()<cr>", "Cargo Test" },
-    v = { "<cmd>RustViewCrateGraph<cr>", "View Crate Graph" },
+    -- v = { "<cmd>RustViewCrateGraph<cr>", "View Crate Graph" },
   },
 }
 

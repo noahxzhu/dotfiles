@@ -63,15 +63,18 @@ return {
         require("lspconfig")[server].setup(server_opts)
       end
 
-      local mlsp = require "mason-lspconfig"
-      local available = mlsp.get_available_servers()
+      local have_mason, mlsp = pcall(require, "mason-lspconfig")
+      local all_mslp_servers = {}
+      if have_mason then
+        all_mslp_servers = vim.tbl_keys(require("mason-lspconfig.mappings.server").lspconfig_to_package)
+      end
 
       local ensure_installed = {}
       for server, server_opts in pairs(servers) do
         if server_opts then
           server_opts = server_opts == true and {} or server_opts
           -- run manual setup if mason=false or if this is a server that cannot be installed with mason-lspconfig
-          if server_opts.mason == false or not vim.tbl_contains(available, server) then
+          if server_opts.mason == false or not vim.tbl_contains(all_mslp_servers, server) then
             setup(server)
           else
             ensure_installed[#ensure_installed + 1] = server
@@ -79,8 +82,10 @@ return {
         end
       end
 
-      require("mason-lspconfig").setup { ensure_installed = ensure_installed }
-      require("mason-lspconfig").setup_handlers { setup }
+      if have_mason then
+        mlsp.setup { ensure_installed = ensure_installed }
+        mlsp.setup_handlers { setup }
+      end
     end,
   },
 
@@ -145,11 +150,18 @@ return {
     config = function(_, opts)
       require("mason").setup(opts)
       local mr = require "mason-registry"
-      for _, tool in ipairs(opts.ensure_installed) do
-        local p = mr.get_package(tool)
-        if not p:is_installed() then
-          p:install()
+      local function ensure_installed()
+        for _, tool in ipairs(opts.ensure_installed) do
+          local p = mr.get_package(tool)
+          if not p:is_installed() then
+            p:install()
+          end
         end
+      end
+      if mr.refresh then
+        mr.refresh(ensure_installed)
+      else
+        ensure_installed()
       end
     end,
   },

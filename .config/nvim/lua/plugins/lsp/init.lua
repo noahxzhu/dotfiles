@@ -103,7 +103,7 @@ return {
           nls.builtins.code_actions.gitsigns,
 
           -- completion
-          nls.builtins.completion.luasnip,
+          -- nls.builtins.completion.luasnip,
           nls.builtins.completion.spell,
 
           -- diagnostics

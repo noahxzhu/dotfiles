@@ -28,6 +28,9 @@ return {
           resize_window = true,
         },
       },
+      git = {
+        ignore = false,
+      },
     },
   },
   {

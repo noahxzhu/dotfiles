@@ -12,15 +12,13 @@ return {
     version = "v3.*",
     opts = {
       options = {
-        -- always_show_bufferline = false,
         separator_style = "thin",
         diagnostics = "nvim_lsp",
         offsets = {
           {
             filetype = "NvimTree",
             text = "File Explorer",
-            highlight = "PanelHeading",
-            padding = 1,
+            highlight = "Directory",
           },
         },
       },

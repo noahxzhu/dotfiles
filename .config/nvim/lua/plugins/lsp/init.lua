@@ -120,6 +120,7 @@ return {
 
           -- formatting
           nls.builtins.formatting.black,
+          nls.builtins.formatting.dprint,
           nls.builtins.formatting.goimports,
           nls.builtins.formatting.google_java_format,
           nls.builtins.formatting.isort,

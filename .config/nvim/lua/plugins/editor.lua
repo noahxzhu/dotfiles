@@ -22,10 +22,25 @@ return {
       view = {
         adaptive_size = false,
         width = 40,
+        float = {
+          enable = true,
+          open_win_config = {
+            relative = "editor",
+            border = "rounded",
+            width = 40,
+            height = 100000,
+            row = 0,
+            col = 0,
+          },
+        },
+      },
+      diagnostics = {
+        enable = true,
       },
       actions = {
         open_file = {
           resize_window = true,
+          quit_on_open = true,
         },
       },
       git = {

@@ -109,12 +109,12 @@ alias gi="gitui"
 
 
 # Java Env
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java17-22.3.0/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java17-22.3.1/Contents/Home
 export PATH=$JAVA_HOME/bin:$PATH
 
-export M2_HOME=$HOME/Tools/apache-maven-3.8.6
+export M2_HOME=$HOME/Tools/apache-maven-3.9.1
 export PATH=$M2_HOME/bin:$PATH
-export PATH=$HOME/Tools/gradle-7.6/bin:$PATH
+export PATH=$HOME/Tools/gradle-8.0.2/bin:$PATH
 
 
 # Go Env
@@ -137,11 +137,11 @@ eval "$(pyenv init -)"
 
 
 # Protocol Buffers
-export PATH=$HOME/Tools/protoc-21.12/bin:$PATH
+export PATH=$HOME/Tools/protoc-22.2/bin:$PATH
 
 
 # Kubernetes Env
-export PATH=$HOME/Tools/helm-3.10.3:$PATH
+export PATH=$HOME/Tools/helm-3.11.2:$PATH
 
 
 # ZSH Pure

@@ -23,7 +23,7 @@ return {
         adaptive_size = false,
         width = 40,
         float = {
-          enable = true,
+          enable = false,
           open_win_config = {
             relative = "editor",
             border = "rounded",

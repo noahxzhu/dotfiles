@@ -126,6 +126,7 @@ return {
           nls.builtins.formatting.isort,
           nls.builtins.formatting.jq,
           nls.builtins.formatting.prettier,
+          nls.builtins.formatting.rustfmt,
           nls.builtins.formatting.stylua,
 
           -- hover

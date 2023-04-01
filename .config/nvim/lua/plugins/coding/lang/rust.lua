@@ -3,6 +3,9 @@ return {
     "simrat39/rust-tools.nvim",
     lazy = true,
     ft = { "rust" },
+    dependencies = {
+      "rust-lang/rust.vim",
+    },
     config = function()
       local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
       local codelldb_adapter = {
@@ -50,6 +53,10 @@ return {
 
       require("rust-tools").setup(opts)
     end,
+  },
+  {
+    "rust-lang/rust.vim",
+    lazy = true,
   },
   {
     "saecki/crates.nvim",

@@ -272,6 +272,7 @@ return {
         ["<leader>g"] = { name = "+Git" },
         ["<leader>gh"] = { name = "+Hunks" },
         ["<leader>l"] = { name = "+LSP" },
+        ["<leader>u"] = { name = "+UI" },
         ["<leader>w"] = { name = "+Windows" },
         ["<leader>x"] = { name = "+Diagnostics/Quickfix" },
       }

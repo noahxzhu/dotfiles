@@ -16,6 +16,15 @@ M.has = function(plugin)
   return require("lazy.core.config").plugins[plugin] ~= nil
 end
 
+M.on_very_lazy = function(fn)
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "VeryLazy",
+    callback = function()
+      fn()
+    end,
+  })
+end
+
 function M.opts(name)
   local plugin = require("lazy.core.config").plugins[name]
   if not plugin then

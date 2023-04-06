@@ -20,8 +20,8 @@ return {
         update_root = true,
       },
       view = {
-        adaptive_size = false,
-        width = 40,
+        adaptive_size = true,
+        -- width = 40,
         float = {
           enable = false,
           open_win_config = {

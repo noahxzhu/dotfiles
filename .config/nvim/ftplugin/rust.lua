@@ -18,7 +18,7 @@ local mappings = {
       "Reload Workspace",
     },
     r = { "<cmd>RustRunnables<cr>", "Runnables" },
-    t = { "<cmd>lua _CARGO_TEST()<cr>", "Cargo Test" },
+    t = { "<cmd>RustTest<cr>", "Cargo Test" },
     -- v = { "<cmd>RustViewCrateGraph<cr>", "View Crate Graph" },
   },
 }

@@ -1,6 +1,6 @@
 local M = {}
 
-M.root_patterns = { ".git", "lua", "Cargo.toml" }
+M.root_patterns = { ".git", "lua" }
 
 M.on_attach = function(on_attach)
   vim.api.nvim_create_autocmd("LspAttach", {

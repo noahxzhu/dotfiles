@@ -1,7 +1,7 @@
 return {
   {
     "nvim-tree/nvim-tree.lua",
-    lazy = false,
+    lazy = true,
     version = "*",
     cmd = {
       "NvimTreeToggle",
@@ -9,6 +9,14 @@ return {
     keys = {
       { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Explorer" },
     },
+    init = function()
+      if vim.fn.argc() == 1 then
+        local stat = vim.loop.fs_stat(vim.fn.argv(0))
+        if stat and stat.type == "directory" then
+          require "nvim-tree"
+        end
+      end
+    end,
     opts = {
       sync_root_with_cwd = true,
       respect_buf_cwd = true,

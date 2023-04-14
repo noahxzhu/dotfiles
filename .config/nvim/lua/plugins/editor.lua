@@ -268,6 +268,7 @@ return {
         ["<leader><tab>"] = { name = "+Tabs" },
         ["<leader>c"] = { name = "+Code" },
         ["<leader>d"] = { name = "+DAP" },
+        ["<leader>da"] = { name = "+Advanced BP" },
         ["<leader>f"] = { name = "+File/Find" },
         ["<leader>g"] = { name = "+Git" },
         ["<leader>gh"] = { name = "+Hunks" },

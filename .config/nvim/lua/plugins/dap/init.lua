@@ -10,19 +10,19 @@ local M = {
     },
     keys = {
       {
-        "<leader>db",
-        "<cmd>lua require'dap'.toggle_breakpoint()<cr>",
-        desc = "Breakpoint",
-      },
-      {
-        "<leader>dbc",
+        "<leader>dac",
         "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint Condition: '))<cr>",
         desc = "Breakpoint Condition",
       },
       {
-        "<leader>dbm",
+        "<leader>dam",
         "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log Point Message: '))<cr>",
         desc = "Breakpoint Message",
+      },
+      {
+        "<leader>db",
+        "<cmd>lua require'dap'.toggle_breakpoint()<cr>",
+        desc = "Breakpoint",
       },
       {
         "<leader>dc",

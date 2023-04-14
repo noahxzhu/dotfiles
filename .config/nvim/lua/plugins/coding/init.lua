@@ -95,18 +95,18 @@ local M = {
   },
   {
     "norcalli/nvim-colorizer.lua",
-    event = "VeryLazy",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("colorizer").setup()
     end,
   },
-  { "numToStr/Comment.nvim", event = "VeryLazy", config = true },
+  { "numToStr/Comment.nvim", event = { "BufReadPre", "BufNewFile" }, config = true },
   { "windwp/nvim-autopairs", event = "InsertEnter", config = true },
   { "windwp/nvim-ts-autotag", event = "InsertEnter", config = true },
   {
     "kylechui/nvim-surround",
     version = "*",
-    event = "VeryLazy",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("nvim-surround").setup()
     end,

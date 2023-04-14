@@ -175,7 +175,6 @@ return {
     version = "*",
     event = "VeryLazy",
     opts = {
-      direction = "float",
       open_mapping = [[<c-\>]],
     },
     config = true,
@@ -219,7 +218,7 @@ return {
   {
     "phaazon/hop.nvim",
     branch = "v2",
-    event = "VeryLazy",
+    event = { "BufReadPre", "BufNewFile" },
     keys = {
       {
         "fc",

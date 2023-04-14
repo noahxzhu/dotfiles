@@ -362,4 +362,5 @@ return {
       { "[[", desc = "Prev Reference" },
     },
   },
+  { "tpope/vim-fugitive", event = { "BufReadPre", "BufNewFile" } },
 }

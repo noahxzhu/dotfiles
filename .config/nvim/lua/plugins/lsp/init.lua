@@ -100,7 +100,7 @@ return {
         root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
         sources = {
           -- code actions
-          nls.builtins.code_actions.gitsigns,
+          -- nls.builtins.code_actions.gitsigns,
 
           -- completion
           nls.builtins.completion.spell,

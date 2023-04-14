@@ -103,6 +103,14 @@ local M = {
   { "numToStr/Comment.nvim", event = "VeryLazy", config = true },
   { "windwp/nvim-autopairs", event = "InsertEnter", config = true },
   { "windwp/nvim-ts-autotag", event = "InsertEnter", config = true },
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup()
+    end,
+  },
 }
 
 return Util.merge(M, require "plugins.coding.lang")

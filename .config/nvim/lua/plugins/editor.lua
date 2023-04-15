@@ -221,32 +221,32 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     keys = {
       {
-        "fc",
+        "<leader>sc",
         "<cmd>HopChar1<cr>",
         mode = { "n", "x", "o" },
       },
       {
-        "fl",
+        "<leader>sl",
         "<cmd>HopLine<cr>",
         mode = { "n", "x", "o" },
       },
       {
-        "fls",
+        "<leader>ss",
         "<cmd>HopLineStart<cr>",
         mode = { "n", "x", "o" },
       },
       {
-        "fv",
+        "<leader>sv",
         "<cmd>HopVertical<cr>",
         mode = { "n", "x", "o" },
       },
       {
-        "fp",
+        "<leader>sp",
         "<cmd>HopPattern<cr>",
         mode = { "n", "x", "o" },
       },
       {
-        "fw",
+        "<leader>sw",
         "<cmd>HopWord<cr>",
         mode = { "n", "x", "o" },
       },
@@ -280,6 +280,7 @@ return {
         ["<leader>g"] = { name = "+Git" },
         ["<leader>gh"] = { name = "+Hunks" },
         ["<leader>l"] = { name = "+LSP" },
+        ["<leader>s"] = { name = "+Hop" },
         ["<leader>u"] = { name = "+UI" },
         ["<leader>w"] = { name = "+Windows" },
         ["<leader>x"] = { name = "+Diagnostics/Quickfix" },

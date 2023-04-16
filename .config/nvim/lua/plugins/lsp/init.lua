@@ -105,6 +105,7 @@ return {
         sources = {
           -- code actions
           -- nls.builtins.code_actions.gitsigns,
+          -- nls.builtins.code_actions.shellcheck,
 
           -- completion
           nls.builtins.completion.spell,
@@ -116,7 +117,7 @@ return {
           },
           nls.builtins.diagnostics.flake8,
           nls.builtins.diagnostics.markdownlint,
-          nls.builtins.diagnostics.shellcheck,
+          -- nls.builtins.diagnostics.shellcheck,
           nls.builtins.diagnostics.staticcheck,
           nls.builtins.diagnostics.tsc,
           nls.builtins.diagnostics.zsh,

@@ -150,5 +150,14 @@ autoload -U promptinit; promptinit
 prompt pure
 
 
+# Vi Mode 
+bindkey -v
+
+
+# Default Editor
+export VISUAL=nvim 
+export EDITOR=$VISUAL
+
+
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

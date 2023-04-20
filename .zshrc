@@ -143,6 +143,9 @@ export PATH=$HOME/Tools/protoc-22.2/bin:$PATH
 # Kubernetes Env
 export PATH=$HOME/Tools/helm-3.11.2:$PATH
 
+# Pet 
+export PATH=$HOME/Tools/pet:$PATH
+
 
 # ZSH Pure
 fpath+=($HOME/.zsh/pure)

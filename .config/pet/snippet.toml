@@ -1,0 +1,4 @@
+[[snippets]]
+  description = "Caffeinate"
+  command = "caffeinate -ut 10000000"
+  output = ""

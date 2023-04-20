@@ -103,63 +103,17 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-# Alias
-alias lg="lazygit"
-alias gi="gitui"
-
-
-# Java Env
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java17-22.3.1/Contents/Home
-export PATH=$JAVA_HOME/bin:$PATH
-
-export M2_HOME=$HOME/Tools/apache-maven-3.9.1
-export PATH=$M2_HOME/bin:$PATH
-export PATH=$HOME/Tools/gradle-8.0.2/bin:$PATH
-
-
-# Go Env
-export GOROOT=$HOME/Envs/go1.20.2
-export GOPATH=$HOME/Envs/GOPATH
-export PATH=$GOROOT/bin:$PATH
-export PATH=$(go env GOPATH)/bin:$PATH
-
-
-# Node Env
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
-# Python Env
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-
-# Protocol Buffers
-export PATH=$HOME/Tools/protoc-22.2/bin:$PATH
-
-
-# Kubernetes Env
-export PATH=$HOME/Tools/helm-3.11.2:$PATH
-
-# Pet 
-export PATH=$HOME/Tools/pet:$PATH
+# Load seperated config files
+for conf in "$HOME/.config/zsh/conf.d/"*.zsh; do
+  source "${conf}"
+done
+unset conf
 
 
 # ZSH Pure
 fpath+=($HOME/.zsh/pure)
 autoload -U promptinit; promptinit
 prompt pure
-
-
-# Vi Mode 
-bindkey -v
-
-
-# Default Editor
-export VISUAL=nvim 
-export EDITOR=$VISUAL
 
 
 # Fig post block. Keep at the bottom of this file.

@@ -236,21 +236,21 @@ local vopts = {
 local mappings = {
   C = {
     name = "Java",
-    o = { "<cmd>lua require'jdtls'.organize_imports()<cr>", "Organize Imports" },
-    v = { "<cmd>lua require'jdtls'.extract_variable()<cr>", "Extract Variable" },
     c = { "<cmd>lua require'jdtls'.extract_constant()<cr>", "Extract Constant" },
-    t = { "<cmd>lua require'jdtls'.test_nearest_method()<cr>", "Test Method" },
+    o = { "<cmd>lua require'jdtls'.organize_imports()<cr>", "Organize Imports" },
     T = { "<cmd>lua require'jdtls'.test_class()<cr>", "Test Class" },
+    t = { "<cmd>lua require'jdtls'.test_nearest_method()<cr>", "Test Method" },
     u = { "<cmd>JdtUpdateConfig<cr>", "Update Config" },
+    v = { "<cmd>lua require'jdtls'.extract_variable()<cr>", "Extract Variable" },
   },
 }
 
 local vmappings = {
   C = {
     name = "Java",
-    v = { "<esc><cmd>lua require'jdtls'.extract_variable(true)<cr>", "Extract Variable" },
-    c = { "<esc><cmd>lua require'jdtls'.extract_constant(true)<cr>", "Extract Constant" },
     m = { "<esc><cmd>lua require'jdtls'.extract_method(true)<cr>", "Extract Method" },
+    c = { "<esc><cmd>lua require'jdtls'.extract_constant(true)<cr>", "Extract Constant" },
+    v = { "<esc><cmd>lua require'jdtls'.extract_variable(true)<cr>", "Extract Variable" },
   },
 }
 

@@ -1,5 +1,6 @@
 # Java Env
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java17-22.3.1/Contents/Home
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-17.0.7+7/Contents/Home
 export PATH=$JAVA_HOME/bin:$PATH
 
 export M2_HOME=$HOME/Tools/apache-maven-3.9.1

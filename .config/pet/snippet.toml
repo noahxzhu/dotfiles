@@ -2,3 +2,8 @@
   description = "Caffeinate"
   command = "caffeinate -ut 10000000"
   output = ""
+
+[[snippets]]
+  description = "Create Python Virtual Environment"
+  command = "python -m venv <path>"
+  output = ""

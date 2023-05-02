@@ -64,6 +64,9 @@ return {
     tag = "v0.3.0",
     event = { "BufRead Cargo.toml" },
     opts = {
+      popup = {
+        border = "rounded",
+      },
       null_ls = {
         enabled = true,
         name = "crates.nvim",

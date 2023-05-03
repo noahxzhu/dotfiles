@@ -1,5 +1,8 @@
+local Util = require "util"
+
 local function map(mode, lhs, rhs, opts)
   local keys = require("lazy.core.handler").handlers.keys
+  ---@cast keys LazyKeysHandler
   -- do not create the keymap if a lazy keys handler exists
   if not keys.active[keys.parse({ lhs, mode = mode }).id] then
     opts = opts or {}
@@ -51,6 +54,11 @@ map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 
 -- lazy
 map("n", "<leader>L", "<cmd>:Lazy<cr>", { desc = "Lazy" })
+
+if not Util.has "trouble.nvim" then
+  map("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
+  map("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
+end
 
 -- windows
 map("n", "<leader>ww", "<c-w>p", { desc = "Other window" })

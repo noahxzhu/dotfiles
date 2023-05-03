@@ -1,12 +1,29 @@
-local Util = require "util"
-
-local M = {
+return {
   {
     "mfussenegger/nvim-dap",
     lazy = true,
     dependencies = {
-      "rcarriga/nvim-dap-ui",
-      "theHamsta/nvim-dap-virtual-text",
+      {
+        "rcarriga/nvim-dap-ui",
+        config = function()
+          local dap = require "dap"
+          local dapui = require "dapui"
+          dapui.setup()
+          dap.listeners.after.event_initialized["dapui_config"] = function()
+            dapui.open {}
+          end
+          dap.listeners.before.event_terminated["dapui_config"] = function()
+            dapui.close {}
+          end
+          dap.listeners.before.event_exited["dapui_config"] = function()
+            dapui.close {}
+          end
+        end,
+      },
+      {
+        "theHamsta/nvim-dap-virtual-text",
+        config = true,
+      },
     },
     keys = {
       {
@@ -25,13 +42,33 @@ local M = {
         desc = "Breakpoint",
       },
       {
+        "<leader>dC",
+        "<cmd>lua require'dap'.run_to_cursor()<cr>",
+        desc = "Run to Cursor",
+      },
+      {
         "<leader>dc",
         "<cmd>lua require'dap'.continue()<cr>",
         desc = "Continue",
       },
       {
+        "<leader>dg",
+        "<cmd>lua require'dap'.goto_()<cr>",
+        desc = "Go to Line (no execute)",
+      },
+      {
         "<leader>di",
         "<cmd>lua require'dap'.step_into()<cr>",
+        desc = "Step Into",
+      },
+      {
+        "<leader>dj",
+        "<cmd>lua require'dap'.down()<cr>",
+        desc = "Step Into",
+      },
+      {
+        "<leader>dk",
+        "<cmd>lua require'dap'.up()<cr>",
         desc = "Step Into",
       },
       {
@@ -50,9 +87,19 @@ local M = {
         desc = "Step Over",
       },
       {
+        "<leader>dp",
+        "<cmd>lua require'dap'.pause()<cr>",
+        desc = "Pause",
+      },
+      {
         "<leader>dr",
         "<cmd>lua require'dap'.repl.toggle()<cr>",
         desc = "Repl",
+      },
+      {
+        "<leader>ds",
+        "<cmd>lua require'dap'.session()<cr>",
+        desc = "Session",
       },
       {
         "<leader>du",
@@ -64,33 +111,22 @@ local M = {
         "<cmd>lua require'dap'.terminate()<cr>",
         desc = "Stop",
       },
+      {
+        "<leader>dw",
+        "<cmd>lua require'dap.ui.widgets'.hover()<cr>",
+        desc = "Widgets",
+      },
     },
     config = function()
-      local dap = require "dap"
-      local dapui = require "dapui"
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
+      vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
+
+      for name, sign in pairs(require("config").icons.dap) do
+        sign = type(sign) == "table" and sign or { sign }
+        vim.fn.sign_define(
+          "Dap" .. name,
+          { text = sign[1], texthl = sign[2] or "DiagnosticSignInfo", linehl = sign[3], numhl = sign[3] }
+        )
       end
     end,
-  },
-  {
-    "rcarriga/nvim-dap-ui",
-    lazy = true,
-    config = function()
-      require("dapui").setup()
-    end,
-  },
-  {
-    "theHamsta/nvim-dap-virtual-text",
-    lazy = true,
-    config = true,
   },
 }
-
-return Util.merge(M, require "plugins.dap.lang")

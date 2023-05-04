@@ -1,6 +1,4 @@
-local Util = require "util"
-
-local M = {
+return {
   -- snippets
   {
     "L3MON4D3/LuaSnip",
@@ -112,5 +110,3 @@ local M = {
     end,
   },
 }
-
-return Util.merge(M, require "plugins.coding.lang")

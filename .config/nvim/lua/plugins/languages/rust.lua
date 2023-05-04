@@ -71,10 +71,6 @@ return {
     end,
   },
   {
-    "rust-lang/rust.vim",
-    lazy = true,
-  },
-  {
     "saecki/crates.nvim",
     lazy = true,
     tag = "v0.3.0",

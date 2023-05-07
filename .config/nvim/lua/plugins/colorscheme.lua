@@ -2,12 +2,12 @@ return {
   -- catppuccin
   {
     "catppuccin/nvim",
-    enabled = false,
+    enabled = true,
     lazy = false,
     name = "catppuccin",
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme "catppuccin"
+      vim.cmd.colorscheme "catppuccin-mocha"
     end,
   },
 
@@ -25,7 +25,7 @@ return {
   -- gruvbox-material
   {
     "sainnhe/gruvbox-material",
-    enabled = true,
+    enabled = false,
     lazy = false,
     priority = 1000,
     config = function()

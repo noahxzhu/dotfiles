@@ -27,6 +27,8 @@ return {
       "css",
       "go",
       "gomod",
+      "gowork",
+      "gosum",
       "java",
       "javascript",
       "json",

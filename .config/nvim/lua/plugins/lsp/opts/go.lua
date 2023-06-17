@@ -1,7 +1,7 @@
 local M = {}
 
 M.gopls = {
-  cmd = { "gopls", "serve" },
+  mason = false,
   settings = {
     gopls = {
       analyses = {

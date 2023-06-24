@@ -257,42 +257,37 @@ return {
   },
 
   {
-    "phaazon/hop.nvim",
-    branch = "v2",
-    event = { "BufReadPre", "BufNewFile" },
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    ---@type Flash.Config
+    opts = {},
     keys = {
       {
-        "<leader>sc",
-        "<cmd>HopChar1<cr>",
-        mode = { "n", "x", "o" },
-      },
-      {
-        "<leader>sl",
-        "<cmd>HopLine<cr>",
-        mode = { "n", "x", "o" },
-      },
-      {
         "<leader>ss",
-        "<cmd>HopLineStart<cr>",
         mode = { "n", "x", "o" },
+        function()
+          -- default options: exact mode, multi window, all directions, with a backdrop
+          require("flash").jump()
+        end,
+        desc = "Flash",
       },
       {
-        "<leader>sv",
-        "<cmd>HopVertical<cr>",
-        mode = { "n", "x", "o" },
+        "<leader>sS",
+        mode = { "n", "o", "x" },
+        function()
+          require("flash").treesitter()
+        end,
+        desc = "Flash Treesitter",
       },
       {
-        "<leader>sp",
-        "<cmd>HopPattern<cr>",
-        mode = { "n", "x", "o" },
-      },
-      {
-        "<leader>sw",
-        "<cmd>HopWord<cr>",
-        mode = { "n", "x", "o" },
+        "<leader>sr",
+        mode = "o",
+        function()
+          require("flash").remote()
+        end,
+        desc = "Remote Flash",
       },
     },
-    config = true,
   },
 
   -- which-key
@@ -309,7 +304,6 @@ return {
       wk.setup(opts)
       local keymaps = {
         mode = { "n", "v" },
-        ["f"] = { name = "+Hop" },
         ["g"] = { name = "+Goto" },
         ["]"] = { name = "+Next" },
         ["["] = { name = "+Prev" },
@@ -321,7 +315,7 @@ return {
         ["<leader>g"] = { name = "+Git" },
         ["<leader>gh"] = { name = "+Hunks" },
         ["<leader>l"] = { name = "+LSP" },
-        ["<leader>s"] = { name = "+Hop" },
+        ["<leader>s"] = { name = "+Flash" },
         ["<leader>u"] = { name = "+UI" },
         ["<leader>w"] = { name = "+Windows" },
         ["<leader>x"] = { name = "+Diagnostics/Quickfix" },

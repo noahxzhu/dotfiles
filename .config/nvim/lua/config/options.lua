@@ -36,6 +36,9 @@ opt.shiftwidth = 2 -- num: Size of an indent
 opt.softtabstop = 2 -- num: Number of spaces tabs count for in insert mode
 opt.tabstop = 2 -- num: Number of spaces tabs count for
 
+opt.list = true -- bool: Control the display format
+opt.listchars:append { tab = "  ", trail = " " } -- table: Behaviors of the listchars
+
 -- [[ Splits ]]
 opt.splitright = true -- bool: Place new window to right of current one
 opt.splitbelow = true -- bool: Place new window below the current one

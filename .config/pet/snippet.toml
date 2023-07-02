@@ -7,3 +7,13 @@
   description = "Create Python Virtual Environment"
   command = "python -m venv <path>"
   output = ""
+
+[[snippets]]
+  description = "Find Process by Port"
+  command = "lsof -i :<port>"
+  output = ""
+
+[[snippets]]
+  description = "Kill Process by PID"
+  command = "kill -9 <PID>"
+  output = ""

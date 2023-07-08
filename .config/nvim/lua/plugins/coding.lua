@@ -18,7 +18,7 @@ return {
       {
         "<tab>",
         function()
-          return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
+          return require("luasnip").expand_or_locally_jumpable() and "<Plug>luasnip-jump-next" or "<tab>"
         end,
         expr = true, silent = true, mode = "i",
       },

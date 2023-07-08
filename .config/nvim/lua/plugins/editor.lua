@@ -263,16 +263,21 @@ return {
     opts = {},
     keys = {
       {
-        "<leader>ss",
+        "s",
         mode = { "n", "x", "o" },
         function()
-          -- default options: exact mode, multi window, all directions, with a backdrop
-          require("flash").jump()
+          require("flash").jump {
+            search = {
+              mode = function(str)
+                return "\\<" .. str
+              end,
+            },
+          }
         end,
         desc = "Flash",
       },
       {
-        "<leader>sS",
+        "S",
         mode = { "n", "o", "x" },
         function()
           require("flash").treesitter()
@@ -280,12 +285,28 @@ return {
         desc = "Flash Treesitter",
       },
       {
-        "<leader>sr",
+        "r",
         mode = "o",
         function()
           require("flash").remote()
         end,
         desc = "Remote Flash",
+      },
+      {
+        "R",
+        mode = { "o", "x" },
+        function()
+          require("flash").treesitter_search()
+        end,
+        desc = "Flash Treesitter Search",
+      },
+      {
+        "<c-s>",
+        mode = { "c" },
+        function()
+          require("flash").toggle()
+        end,
+        desc = "Toggle Flash Search",
       },
     },
   },
@@ -315,7 +336,6 @@ return {
         ["<leader>g"] = { name = "+Git" },
         ["<leader>gh"] = { name = "+Hunks" },
         ["<leader>l"] = { name = "+LSP" },
-        ["<leader>s"] = { name = "+Flash" },
         ["<leader>u"] = { name = "+UI" },
         ["<leader>w"] = { name = "+Windows" },
         ["<leader>x"] = { name = "+Diagnostics/Quickfix" },

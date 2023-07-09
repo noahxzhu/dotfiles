@@ -24,7 +24,13 @@ return {
             vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "CursorHold", "InsertLeave" }, {
               pattern = { "*.rs" },
               callback = function()
-                pcall(vim.lsp.codelens.refresh)
+                local clients = vim.lsp.buf_get_clients()
+                for _, client in pairs(clients) do
+                  if client.supports_method "textDocument/codeLens" then
+                    pcall(vim.lsp.codelens.refresh)
+                    return
+                  end
+                end
               end,
             })
           end,

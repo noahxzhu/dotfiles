@@ -30,6 +30,7 @@ return {
   -- auto completion
   {
     "hrsh7th/nvim-cmp",
+    version = false, -- last release is way too old
     event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
@@ -40,6 +41,7 @@ return {
     },
     opts = function()
       local cmp = require "cmp"
+      local defaults = require "cmp.config.default"()
       return {
         completion = {
           completeopt = "menu,menuone,noinsert",
@@ -85,9 +87,10 @@ return {
         },
         experimental = {
           ghost_text = {
-            hl_group = "LspCodeLens",
+            hl_group = "CmpGhostText",
           },
         },
+        sorting = defaults.sorting,
       }
     end,
   },

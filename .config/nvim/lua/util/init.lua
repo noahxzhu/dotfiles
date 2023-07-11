@@ -13,7 +13,7 @@ M.on_attach = function(on_attach)
 end
 
 M.has = function(plugin)
-  return require("lazy.core.config").plugins[plugin] ~= nil
+  return require("lazy.core.config").spec.plugins[plugin] ~= nil
 end
 
 M.on_very_lazy = function(fn)

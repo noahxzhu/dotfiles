@@ -3,10 +3,10 @@ local M = {}
 -- icons used by other plugins
 M.icons = {
   dap = {
-    Stopped = { "󰁕 ", "DiagnosticSignWarn", "DapStoppedLine" },
+    Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
     Breakpoint = " ",
     BreakpointCondition = " ",
-    BreakpointRejected = { " ", "DiagnosticSignError" },
+    BreakpointRejected = { " ", "DiagnosticError" },
     LogPoint = ".>",
   },
   diagnostics = {

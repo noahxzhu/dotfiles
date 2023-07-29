@@ -127,9 +127,11 @@ return {
           -- code actions
           -- nls.builtins.code_actions.gitsigns,
           -- nls.builtins.code_actions.shellcheck,
+          -- nls.builtins.code_actions.impl,
+          -- nls.builtins.code_actions.gomodifytags,
 
           -- completion
-          nls.builtins.completion.spell,
+          -- nls.builtins.completion.spell,
 
           -- diagnostics
           nls.builtins.diagnostics.checkmake,

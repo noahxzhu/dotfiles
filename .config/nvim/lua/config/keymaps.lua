@@ -16,10 +16,15 @@ map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 -- Move to window using the <ctrl> hjkl keys
-map("n", "<c-h>", "<c-w>h", { desc = "Go to left window" })
-map("n", "<c-j>", "<c-w>j", { desc = "Go to lower window" })
-map("n", "<c-k>", "<c-w>k", { desc = "Go to upper window" })
-map("n", "<c-l>", "<c-w>l", { desc = "Go to right window" }) -- Resize with arrows
+-- Replaced by vim-tmux-navigator
+-- map("n", "<c-h>", "<c-w>h", { desc = "Go to left window" })
+-- map("n", "<c-j>", "<c-w>j", { desc = "Go to lower window" })
+-- map("n", "<c-k>", "<c-w>k", { desc = "Go to upper window" })
+-- map("n", "<c-l>", "<c-w>l", { desc = "Go to right window" })
+map("n", "<c-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Go to left window" })
+map("n", "<c-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Go to lower window" })
+map("n", "<c-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Go to upper window" })
+map("n", "<c-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Go to right window" })
 
 -- Move Lines
 map("n", "<a-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })

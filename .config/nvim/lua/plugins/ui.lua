@@ -90,12 +90,12 @@ return {
           theme = "auto",
           globalstatus = true,
           component_separators = {
-            left = require("config").icons.ui.SlashSeparatorBack,
-            right = require("config").icons.ui.SlashSeparatorForward,
+            -- left = require("config").icons.ui.SlashSeparatorBack,
+            -- right = require("config").icons.ui.SlashSeparatorForward,
           },
           section_separators = {
-            left = require("config").icons.ui.TriangleLowerLeft,
-            right = require("config").icons.ui.TriangleLowerRight,
+            -- left = require("config").icons.ui.TriangleLowerLeft,
+            -- right = require("config").icons.ui.TriangleLowerRight,
           },
           disabled_filetypes = { statusline = { "NvimTree", "dashboard", "lazy", "alpha" } },
         },

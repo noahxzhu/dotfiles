@@ -64,6 +64,7 @@ return {
     dependencies = {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       "ahmedkhalf/project.nvim",
+      "ThePrimeagen/harpoon",
     },
     keys = {
       { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find Buffers" },
@@ -75,6 +76,7 @@ return {
       { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
       { "<leader>fl", "<cmd>Telescope resume<cr>", desc = "Last Search" },
       { "<leader>fM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
+      { "<leader>fm", "<cmd>Telescope harpoon marks<cr>", desc = "Harpoon Marks" },
       { "<leader>fp", "<cmd>Telescope projects<cr>", desc = "Find Projects" },
       { "<leader>fR", "<cmd>Telescope registers<cr>", desc = "Registers" },
       { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent File" },
@@ -87,6 +89,7 @@ return {
 
       telescope.load_extension "fzf"
       telescope.load_extension "projects"
+      telescope.load_extension "harpoon"
 
       telescope.setup {
         defaults = {
@@ -335,6 +338,7 @@ return {
         ["<leader>f"] = { desc = "+File/Find" },
         ["<leader>g"] = { desc = "+Git" },
         ["<leader>gh"] = { desc = "+Hunks" },
+        ["<leader>h"] = { desc = "+Harpoon" },
         ["<leader>l"] = { desc = "+LSP" },
         ["<leader>u"] = { desc = "+UI" },
         ["<leader>w"] = { desc = "+Windows" },
@@ -418,6 +422,43 @@ return {
     },
   },
   { "tpope/vim-fugitive", event = { "BufReadPre", "BufNewFile" } },
-  { "ThePrimeagen/harpoon", event = { "BufReadPre", "BufNewFile" } },
+  {
+    "ThePrimeagen/harpoon",
+    event = { "BufReadPre", "BufNewFile" },
+    keys = {
+      {
+        "<leader>ha",
+        mode = { "n" },
+        function()
+          require("harpoon.mark").add_file()
+        end,
+        desc = "Add File",
+      },
+      {
+        "<leader>hn",
+        mode = { "n" },
+        function()
+          require("harpoon.ui").nav_next()
+        end,
+        desc = "Nav Next",
+      },
+      {
+        "<leader>hp",
+        mode = { "n" },
+        function()
+          require("harpoon.ui").nav_prev()
+        end,
+        desc = "Nav Prev",
+      },
+      {
+        "<leader>ht",
+        mode = { "n" },
+        function()
+          require("harpoon.ui").toggle_quick_menu()
+        end,
+        desc = "Toggle Quick Menu",
+      },
+    },
+  },
   { "christoomey/vim-tmux-navigator", lazy = false },
 }

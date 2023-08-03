@@ -16,8 +16,6 @@ else
   print "Unsupported system"
 end
 
-local jdk_root_path = "/Library/Java/JavaVirtualMachines/"
-
 -- Find root of project
 local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
 local root_dir = require("jdtls.setup").find_root(root_markers)
@@ -54,7 +52,7 @@ local config = {
     -- 💀
     -- "java", -- or '/path/to/java11_or_newer/bin/java'
     -- jdk_root_path .. "jdk-17.0.7+7/Contents/Home/bin/java",
-    jdk_root_path .. "graalvm-ce-java17-22.3.1/Contents/Home/bin/java",
+    os.getenv "NVIM_DEFAULT_JDK",
     -- depends on if `java` is in your $PATH env variable and if it points to the right version.
 
     "-Declipse.application=org.eclipse.jdt.ls.core.id1",
@@ -116,7 +114,7 @@ local config = {
         runtimes = {
           {
             name = "JavaSE-17",
-            path = jdk_root_path .. "graalvm-ce-java17-22.3.1/Contents/Home",
+            path = os.getenv "NVIM_JDK_17_HOME",
           },
         },
       },

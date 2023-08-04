@@ -139,6 +139,7 @@ return {
             extra_args = { "--config", vim.fn.stdpath "config" .. "/.codespellrc" },
           },
           nls.builtins.diagnostics.flake8,
+          nls.builtins.diagnostics.golangci_lint,
           -- nls.builtins.diagnostics.markdownlint,
           -- nls.builtins.diagnostics.shellcheck,
           nls.builtins.diagnostics.staticcheck,

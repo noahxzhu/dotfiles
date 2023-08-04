@@ -361,6 +361,13 @@ return {
         changedelete = { text = "▎" },
         untracked = { text = "▎" },
       },
+      current_line_blame = true,
+      current_line_blame_opts = {
+        virt_text = true,
+        virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
+        delay = 1000,
+        ignore_whitespace = false,
+      },
       on_attach = function(buffer)
         local gs = package.loaded.gitsigns
 

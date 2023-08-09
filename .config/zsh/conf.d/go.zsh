@@ -1,5 +1,5 @@
 # Go Env
-export GOROOT=$HOME/Envs/go1.20.2
-export GOPATH=$HOME/Envs/GOPATH
+export GOROOT=$HOME/Envs/go/1.21.0
+export GOPATH=$HOME/Envs/go/GOPATH
 export PATH=$GOROOT/bin:$PATH
 export PATH=$(go env GOPATH)/bin:$PATH

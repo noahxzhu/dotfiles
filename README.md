@@ -6,7 +6,7 @@ ln -s path/to/dotfiles/.zshrc ~/.zshrc
 ln -s path/to/dotfiles/.tmux.conf ~/.tmux.conf
 ```
 
-## Set the following system environment variable for Java configuration
+## Set the following system environment variables for Java configuration
 
 ```
 export NVIM_JDK_ROOT_PATH=/Library/Java/JavaVirtualMachines

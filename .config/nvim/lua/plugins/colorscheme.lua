@@ -1,4 +1,4 @@
-return {
+M = {
   -- catppuccin
   {
     "catppuccin/nvim",
@@ -43,3 +43,5 @@ return {
     end,
   },
 }
+
+return M

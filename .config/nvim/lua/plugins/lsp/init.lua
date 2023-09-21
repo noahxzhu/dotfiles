@@ -135,9 +135,9 @@ return {
 
           -- diagnostics
           nls.builtins.diagnostics.checkmake,
-          nls.builtins.diagnostics.codespell.with {
-            extra_args = { "--config", vim.fn.stdpath "config" .. "/.codespellrc" },
-          },
+          -- nls.builtins.diagnostics.codespell.with {
+          --   extra_args = { "--config", vim.fn.stdpath "config" .. "/.codespellrc" },
+          -- },
           nls.builtins.diagnostics.flake8,
           nls.builtins.diagnostics.golangci_lint,
           -- nls.builtins.diagnostics.markdownlint,

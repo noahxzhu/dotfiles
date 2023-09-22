@@ -1,5 +1,6 @@
 M = {
   "akinsho/toggleterm.nvim",
+  enabled = false,
   version = "*",
   event = "VeryLazy",
   opts = {

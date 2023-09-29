@@ -116,6 +116,10 @@ local config = {
             name = "JavaSE-17",
             path = os.getenv "NVIM_JDK_17_HOME",
           },
+          {
+            name = "JavaSE-21",
+            path = os.getenv "NVIM_JDK_21_HOME",
+          },
         },
       },
       maven = {

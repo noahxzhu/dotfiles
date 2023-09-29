@@ -1,10 +1,13 @@
 # Protocol Buffers
-export PATH=$HOME/Tools/protoc-22.2/bin:$PATH
+export PATH=$HOME/Tools/protoc-24.3/bin:$PATH
 
 # Pet 
 export PATH=$HOME/Tools/pet:$PATH
 
-# Conda
+# z.sh
+. "/opt/homebrew/etc/profile.d/z.sh"
+
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('$HOME/Tools/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"

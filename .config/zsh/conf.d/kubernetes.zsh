@@ -1,2 +1,2 @@
 # Kubernetes Env
-export PATH=$HOME/Tools/helm-3.11.2:$PATH
+export PATH=$HOME/Tools/helm-3.13.0:$PATH

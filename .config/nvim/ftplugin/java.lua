@@ -10,7 +10,7 @@ end
 -- Determine OS
 if vim.fn.has "mac" == 1 then
   SYSTEM = "mac"
-elseif vim.fn.has "unix" == 1 then
+elseif vim.fn.has "linux" == 1 then
   SYSTEM = "linux"
 else
   print "Unsupported system"

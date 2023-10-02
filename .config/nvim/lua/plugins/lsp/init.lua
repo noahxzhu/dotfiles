@@ -31,8 +31,6 @@ return {
         },
         severity_sort = true,
       },
-      -- Automatically format on save
-      autoformat = true,
       -- options for vim.lsp.buf.format
       -- `bufnr` and `filter` is handled by the LazyVim formatter,
       -- but can be also overridden when specified
@@ -46,8 +44,6 @@ return {
       -- return true if you don't want this server to be setup with lspconfig
     },
     config = function(_, opts)
-      -- setup autoformat
-      require("plugins.lsp.format").autoformat = opts.autoformat
       -- setup formatting and keymaps
       require("util").on_attach(function(client, buffer)
         require("plugins.lsp.format").on_attach(client, buffer)

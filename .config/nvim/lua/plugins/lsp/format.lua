@@ -1,28 +1,8 @@
-local Util = require "lazy.core.util"
-
 local M = {}
-
-M.autoformat = true
-
-function M.toggle()
-  if vim.b.autoformat == false then
-    vim.b.autoformat = nil
-    M.autoformat = true
-  else
-    M.autoformat = not M.autoformat
-  end
-  if M.autoformat then
-    Util.info("Enabled format on save", { title = "Format" })
-  else
-    Util.warn("Disabled format on save", { title = "Format" })
-  end
-end
 
 M.format = function()
   local buf = vim.api.nvim_get_current_buf()
-  if vim.b.autoformat == false then
-    return
-  end
+
   local ft = vim.bo[buf].filetype
   local have_nls = #require("null-ls.sources").get_available(ft, "NULL_LS_FORMATTING") > 0
 
@@ -52,9 +32,7 @@ M.on_attach = function(client, buf)
       group = vim.api.nvim_create_augroup("LspFormat." .. buf, {}),
       buffer = buf,
       callback = function()
-        if M.autoformat then
-          M.format()
-        end
+        M.format()
       end,
     })
   end

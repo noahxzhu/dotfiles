@@ -12,7 +12,6 @@ return {
         },
         server = { -- pass options to lspconfig's setup method
           on_attach = require("util").on_attach(function(client, buffer)
-            require("plugins.lsp.format").on_attach(client, buffer)
             require("plugins.lsp.keymaps").on_attach(client, buffer)
           end),
           capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),

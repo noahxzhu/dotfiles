@@ -31,22 +31,14 @@ return {
         },
         severity_sort = true,
       },
-      -- options for vim.lsp.buf.format
-      -- `bufnr` and `filter` is handled by the LazyVim formatter,
-      -- but can be also overridden when specified
-      format = {
-        formatting_options = nil,
-        timeout_ms = nil,
-      },
       -- LSP Server Settings
       servers = opts_servers,
       -- you can do any additional lsp server setup here
       -- return true if you don't want this server to be setup with lspconfig
     },
     config = function(_, opts)
-      -- setup formatting and keymaps
+      -- setup keymaps
       require("util").on_attach(function(client, buffer)
-        require("plugins.lsp.format").on_attach(client, buffer)
         require("plugins.lsp.keymaps").on_attach(client, buffer)
       end)
 
@@ -110,74 +102,6 @@ return {
     end,
   },
 
-  -- formatters
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = { "williamboman/mason.nvim" },
-    opts = function()
-      local nls = require "null-ls"
-      return {
-        root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
-        sources = {
-          -- code actions
-          -- nls.builtins.code_actions.gitsigns,
-          -- nls.builtins.code_actions.shellcheck,
-          -- nls.builtins.code_actions.impl,
-          -- nls.builtins.code_actions.gomodifytags,
-
-          -- completion
-          -- nls.builtins.completion.spell,
-
-          -- diagnostics
-          nls.builtins.diagnostics.checkmake,
-          -- nls.builtins.diagnostics.codespell.with {
-          --   extra_args = { "--config", vim.fn.stdpath "config" .. "/.codespellrc" },
-          -- },
-          nls.builtins.diagnostics.flake8,
-          nls.builtins.diagnostics.golangci_lint,
-          -- nls.builtins.diagnostics.markdownlint,
-          -- nls.builtins.diagnostics.shellcheck,
-          nls.builtins.diagnostics.staticcheck,
-          nls.builtins.diagnostics.tsc,
-          nls.builtins.diagnostics.zsh,
-
-          -- formatting
-          nls.builtins.formatting.black,
-          nls.builtins.formatting.dprint,
-          nls.builtins.formatting.gofmt,
-          nls.builtins.formatting.goimports,
-          nls.builtins.formatting.google_java_format,
-          nls.builtins.formatting.isort,
-          nls.builtins.formatting.jq,
-          -- nls.builtins.formatting.markdownlint,
-          nls.builtins.formatting.prettier,
-          nls.builtins.formatting.rustfmt.with {
-            extra_args = function(params)
-              local Path = require "plenary.path"
-              local cargo_toml = Path:new(params.root .. "/" .. "Cargo.toml")
-
-              if cargo_toml:exists() and cargo_toml:is_file() then
-                for _, line in ipairs(cargo_toml:readlines()) do
-                  local edition = line:match [[^edition%s*=%s*%"(%d+)%"]]
-                  if edition then
-                    return { "--edition=" .. edition }
-                  end
-                end
-              end
-              -- default edition when we don't find `Cargo.toml` or the `edition` in it.
-              return { "--edition=2021" }
-            end,
-          },
-          nls.builtins.formatting.stylua,
-
-          -- hover
-          nls.builtins.hover.dictionary,
-        },
-      }
-    end,
-  },
-
   -- cmdline tools and lsp servers
   {
     "williamboman/mason.nvim",
@@ -185,9 +109,35 @@ return {
     keys = { { "<leader>lm", "<cmd>Mason<cr>", desc = "Mason" } },
     opts = {
       ensure_installed = {
-        "stylua",
-        "shfmt",
+        "bash-language-server",
+        "black",
+        "clangd",
+        "cmake-language-server",
+        "codelldb",
+        "css-lsp",
+        "cssmodules-language-server",
+        "debugpy",
+        "docker-compose-language-service",
+        "dockerfile-language-server",
+        "eslint_d",
         "flake8",
+        "google-java-format",
+        "gradle-language-server",
+        "html-lsp",
+        "isort",
+        "java-debug-adapter",
+        "java-test",
+        "jdtls",
+        "js-debug-adapter",
+        "kotlin-debug-adapter",
+        "kotlin-language-server",
+        "lua-language-server",
+        "prettierd",
+        "pyright",
+        "shfmt",
+        "stylua",
+        "tailwindcss-language-server",
+        "vscode-java-decompiler",
       },
     },
     ---@param opts MasonSettings | {ensure_installed: string[]}

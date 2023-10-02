@@ -192,7 +192,6 @@ config["on_attach"] = function(client, buffer)
   require("jdtls.dap").setup_dap_main_class_configs()
   require("jdtls").setup_dap { hotcodereplace = "auto" }
   require("util").on_attach(function()
-    require("plugins.lsp.format").on_attach(client, buffer)
     require("plugins.lsp.keymaps").on_attach(client, buffer)
   end)
 end

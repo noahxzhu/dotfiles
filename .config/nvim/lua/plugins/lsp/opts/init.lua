@@ -5,5 +5,6 @@ local lua = require "plugins.lsp.opts.lua"
 local python = require "plugins.lsp.opts.python"
 local rust = require "plugins.lsp.opts.rust"
 local typescript = require "plugins.lsp.opts.typescript"
+local zig = require "plugins.lsp.opts.zig"
 
-return vim.tbl_extend("force", go, java, json, lua, python, rust, typescript)
+return vim.tbl_extend("force", go, java, json, lua, python, rust, typescript, zig)

@@ -1,4 +1,4 @@
-M = {
+return {
   "folke/todo-comments.nvim",
   cmd = { "TodoTrouble", "TodoTelescope" },
   event = { "BufReadPost", "BufNewFile" },
@@ -23,5 +23,3 @@ M = {
   },
   config = true,
 }
-
-return M

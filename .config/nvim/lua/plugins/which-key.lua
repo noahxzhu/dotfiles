@@ -1,4 +1,4 @@
-M = {
+return {
   "folke/which-key.nvim",
   event = "VeryLazy",
   opts = {
@@ -30,5 +30,3 @@ M = {
     wk.register(keymaps)
   end,
 }
-
-return M

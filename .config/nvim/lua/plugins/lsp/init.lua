@@ -132,6 +132,7 @@ return {
         "kotlin-debug-adapter",
         "kotlin-language-server",
         "lua-language-server",
+        "omnisharp",
         "prettierd",
         "pyright",
         "shfmt",

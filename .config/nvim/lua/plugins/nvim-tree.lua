@@ -1,4 +1,4 @@
-M = {
+return {
   "nvim-tree/nvim-tree.lua",
   lazy = true,
   version = "*",
@@ -64,5 +64,3 @@ M = {
     },
   },
 }
-
-return M

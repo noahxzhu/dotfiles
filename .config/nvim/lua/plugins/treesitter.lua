@@ -31,6 +31,7 @@ return {
         "gomod",
         "gowork",
         "gosum",
+        "graphql",
         "html",
         "http",
         "java",

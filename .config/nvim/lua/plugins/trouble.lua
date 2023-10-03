@@ -1,4 +1,4 @@
-M = {
+return {
   "folke/trouble.nvim",
   cmd = { "TroubleToggle", "Trouble" },
   opts = { use_diagnostic_signs = true },
@@ -31,5 +31,3 @@ M = {
     },
   },
 }
-
-return M

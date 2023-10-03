@@ -1,4 +1,4 @@
-M = {
+return {
   {
     "mfussenegger/nvim-dap",
     lazy = true,
@@ -130,5 +130,3 @@ M = {
     end,
   },
 }
-
-return M

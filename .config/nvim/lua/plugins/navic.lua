@@ -1,4 +1,4 @@
-M = {
+return {
   "SmiteshP/nvim-navic",
   lazy = true,
   init = function()
@@ -18,5 +18,3 @@ M = {
     }
   end,
 }
-
-return M

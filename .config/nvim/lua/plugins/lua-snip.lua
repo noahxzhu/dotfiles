@@ -1,4 +1,4 @@
-M = {
+return {
   "L3MON4D3/LuaSnip",
   build = "make install_jsregexp",
   dependencies = {
@@ -24,5 +24,3 @@ M = {
       { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
     },
 }
-
-return M

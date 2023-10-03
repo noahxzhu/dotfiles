@@ -1,4 +1,4 @@
-M = {
+return {
   "folke/noice.nvim",
   event = "VeryLazy",
   opts = {
@@ -20,5 +20,3 @@ M = {
     },
   },
 }
-
-return M

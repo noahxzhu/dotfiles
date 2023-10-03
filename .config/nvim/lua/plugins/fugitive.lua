@@ -1,3 +1,1 @@
-M = { "tpope/vim-fugitive", event = { "BufReadPre", "BufNewFile" } }
-
-return M
+return { "tpope/vim-fugitive", event = { "BufReadPre", "BufNewFile" } }

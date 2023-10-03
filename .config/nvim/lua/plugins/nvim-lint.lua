@@ -1,4 +1,4 @@
-M = {
+return {
   "mfussenegger/nvim-lint",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
@@ -20,5 +20,3 @@ M = {
     })
   end,
 }
-
-return M

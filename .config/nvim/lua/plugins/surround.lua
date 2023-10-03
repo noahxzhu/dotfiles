@@ -1,4 +1,4 @@
-M = {
+return {
   "kylechui/nvim-surround",
   version = "*",
   event = { "BufReadPre", "BufNewFile" },
@@ -6,5 +6,3 @@ M = {
     require("nvim-surround").setup()
   end,
 }
-
-return M

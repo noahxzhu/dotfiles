@@ -1,3 +1,1 @@
-M = { "MunifTanjim/nui.nvim", lazy = true }
-
-return M
+return { "MunifTanjim/nui.nvim", lazy = true }

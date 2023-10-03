@@ -1,4 +1,4 @@
-M = {
+return {
   "akinsho/bufferline.nvim",
   event = { "BufReadPre", "BufNewFile" },
   lazy = true,
@@ -17,5 +17,3 @@ M = {
     },
   },
 }
-
-return M

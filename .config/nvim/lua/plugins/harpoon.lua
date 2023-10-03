@@ -1,4 +1,4 @@
-M = {
+return {
   "ThePrimeagen/harpoon",
   event = { "BufReadPre", "BufNewFile" },
   keys = {
@@ -36,5 +36,3 @@ M = {
     },
   },
 }
-
-return M

@@ -1,4 +1,4 @@
-M = {
+return {
   "RRethy/vim-illuminate",
   event = { "BufReadPost", "BufNewFile" },
   opts = { delay = 200 },
@@ -28,5 +28,3 @@ M = {
     { "[[", desc = "Prev Reference" },
   },
 }
-
-return M

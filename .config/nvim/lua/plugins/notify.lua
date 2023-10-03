@@ -1,4 +1,4 @@
-M = {
+return {
   "rcarriga/nvim-notify",
   keys = {
     {
@@ -28,5 +28,3 @@ M = {
     end
   end,
 }
-
-return M

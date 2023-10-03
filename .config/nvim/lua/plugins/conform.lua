@@ -1,4 +1,4 @@
-M = {
+return {
   "stevearc/conform.nvim",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
@@ -54,5 +54,3 @@ M = {
     conform.formatters_by_ft.go = { "golines" }
   end,
 }
-
-return M

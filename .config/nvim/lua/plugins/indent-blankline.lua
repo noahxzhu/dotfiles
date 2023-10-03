@@ -1,4 +1,4 @@
-M = {
+return {
   "lukas-reineke/indent-blankline.nvim",
   event = { "BufReadPost", "BufNewFile" },
   config = function()
@@ -31,5 +31,3 @@ M = {
     }
   end,
 }
-
-return M

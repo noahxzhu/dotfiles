@@ -1,4 +1,4 @@
-M = {
+return {
   "nvim-lualine/lualine.nvim",
   event = { "BufReadPre", "BufNewFile" },
   opts = function()
@@ -96,5 +96,3 @@ M = {
     }
   end,
 }
-
-return M

@@ -1,4 +1,4 @@
-M = {
+return {
   "lmburns/lf.nvim",
   cmd = "Lf",
   dependencies = {
@@ -15,5 +15,3 @@ M = {
     { "<leader>fF", "<cmd>Lf<cr>", desc = "Lf" },
   },
 }
-
-return M

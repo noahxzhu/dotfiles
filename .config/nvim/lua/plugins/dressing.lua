@@ -1,4 +1,4 @@
-M = {
+return {
   "stevearc/dressing.nvim",
   lazy = true,
   init = function()
@@ -14,5 +14,3 @@ M = {
     end
   end,
 }
-
-return M

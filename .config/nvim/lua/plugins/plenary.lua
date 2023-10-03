@@ -1,3 +1,1 @@
-M = { "nvim-lua/plenary.nvim", lazy = true }
-
-return M
+return { "nvim-lua/plenary.nvim", lazy = true }

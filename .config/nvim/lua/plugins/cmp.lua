@@ -1,4 +1,4 @@
-M = {
+return {
   "hrsh7th/nvim-cmp",
   version = false, -- last release is way too old
   event = "InsertEnter",
@@ -72,5 +72,3 @@ M = {
     }
   end,
 }
-
-return M

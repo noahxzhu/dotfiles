@@ -1,4 +1,4 @@
-M = {
+return {
   "goolord/alpha-nvim",
   event = "VimEnter",
   opts = function()
@@ -66,5 +66,3 @@ M = {
     })
   end,
 }
-
-return M

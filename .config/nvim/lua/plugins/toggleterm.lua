@@ -1,4 +1,4 @@
-M = {
+return {
   "akinsho/toggleterm.nvim",
   version = "*",
   event = "VeryLazy",
@@ -7,5 +7,3 @@ M = {
   },
   config = true,
 }
-
-return M

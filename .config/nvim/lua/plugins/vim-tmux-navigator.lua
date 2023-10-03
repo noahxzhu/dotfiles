@@ -1,3 +1,1 @@
-M = { "christoomey/vim-tmux-navigator", lazy = false }
-
-return M
+return { "christoomey/vim-tmux-navigator", lazy = false }

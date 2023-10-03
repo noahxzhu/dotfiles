@@ -1,4 +1,4 @@
-M = {
+return {
   "HiPhish/rainbow-delimiters.nvim",
   event = { "BufReadPre", "BufNewFile" },
   lazy = true,
@@ -25,5 +25,3 @@ M = {
     }
   end,
 }
-
-return M

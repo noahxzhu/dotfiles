@@ -51,6 +51,7 @@ M = {
     conform.formatters_by_ft.python = { "isort", "black" }
     conform.formatters_by_ft.rust = { "rustfmt" }
     conform.formatters_by_ft.java = { "google-java-format" }
+    conform.formatters_by_ft.go = { "golines" }
   end,
 }
 

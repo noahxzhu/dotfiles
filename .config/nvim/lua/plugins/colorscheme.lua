@@ -6,8 +6,24 @@ return {
     lazy = false,
     name = "catppuccin",
     priority = 1000,
-    config = function()
-      vim.cmd.colorscheme "catppuccin-mocha"
+    opts = {
+      flavour = "mocha",
+      transparent_background = true,
+      integrations = {
+        alpha = true,
+        barbar = true,
+        cmp = true,
+        gitsigns = true,
+        nvimtree = true,
+        treesitter = true,
+        notify = true,
+        mini = true,
+        harpoon = true,
+      },
+    },
+    config = function(_, opts)
+      require("catppuccin").setup(opts)
+      vim.cmd.colorscheme "catppuccin"
     end,
   },
 

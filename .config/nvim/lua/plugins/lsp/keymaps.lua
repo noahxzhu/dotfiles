@@ -27,20 +27,7 @@ function M.get()
       { "]w", M.diagnostic_goto(true, "WARN"), desc = "Next Warning" },
       { "[w", M.diagnostic_goto(false, "WARN"), desc = "Prev Warning" },
     }
-    if require("util").has "inc-rename.nvim" then
-      M._keys[#M._keys + 1] = {
-        "<leader>cr",
-        function()
-          require "inc_rename"
-          return ":IncRename " .. vim.fn.expand "<cword>"
-        end,
-        expr = true,
-        desc = "Rename",
-        has = "rename",
-      }
-    else
-      M._keys[#M._keys + 1] = { "<leader>cr", vim.lsp.buf.rename, desc = "Rename", has = "rename" }
-    end
+    M._keys[#M._keys + 1] = { "<leader>cr", vim.lsp.buf.rename, desc = "Rename", has = "rename" }
   end
   return M._keys
 end

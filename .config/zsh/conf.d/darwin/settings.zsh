@@ -1,5 +1,5 @@
 # Vi Mode 
-# bindkey -v
+bindkey -v
 
 # Default Editor
 export VISUAL=nvim 

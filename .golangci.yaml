@@ -1,0 +1,14 @@
+linters-settings:
+  govet:
+    check-shadowing: true
+    settings:
+      shadow:
+        strict: true
+    enable:
+      - shadow
+
+linters:
+  enable:
+    - errcheck
+    - goconst
+    - gocyclo

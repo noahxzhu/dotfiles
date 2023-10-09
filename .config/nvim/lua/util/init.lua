@@ -1,6 +1,10 @@
 local M = {}
 
 M.root_patterns = { ".git", "lua" }
+function M.get_clients(...)
+  local fn = vim.lsp.get_clients or vim.lsp.get_active_clients
+  return fn(...)
+end
 
 M.on_attach = function(on_attach)
   vim.api.nvim_create_autocmd("LspAttach", {

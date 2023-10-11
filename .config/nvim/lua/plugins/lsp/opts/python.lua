@@ -5,6 +5,10 @@ M.pyright = {
     python = {
       analysis = {
         typeCheckingMode = "off",
+        autoImportCompletions = true,
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+        diagnosticMode = "workspace",
       },
     },
   },

@@ -131,6 +131,7 @@ return {
         "js-debug-adapter",
         "kotlin-debug-adapter",
         "kotlin-language-server",
+        "ktlint",
         "lua-language-server",
         "omnisharp",
         "prettierd",

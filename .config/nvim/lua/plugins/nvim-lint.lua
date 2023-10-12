@@ -4,12 +4,13 @@ return {
   config = function()
     local lint = require "lint"
     lint.linters_by_ft = {
-      javascript = { "eslint_d" },
-      typescript = { "eslint_d" },
-      javascriptreact = { "eslint_d" },
-      typescriptreact = { "eslint_d" },
-      python = { "flake8" },
       go = { "golangcilint" },
+      javascript = { "eslint_d" },
+      javascriptreact = { "eslint_d" },
+      kotlin = { "ktlint" },
+      python = { "flake8" },
+      typescript = { "eslint_d" },
+      typescriptreact = { "eslint_d" },
     }
 
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {

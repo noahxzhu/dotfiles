@@ -9,7 +9,7 @@ opt.mouse = "a"
 opt.cursorline = true
 
 -- [[ Context ]]
--- opt.colorcolumn = "80" -- str: Show col for max line length
+opt.colorcolumn = "80" -- str: Show col for max line length
 opt.number = true -- bool: Show line numbers
 opt.relativenumber = true -- bool: Show relative line numbers
 opt.scrolloff = 4 -- int: Min num lines of context
@@ -42,6 +42,3 @@ opt.listchars:append { tab = "  ", trail = " " } -- table: Behaviors of the list
 -- [[ Splits ]]
 opt.splitright = true -- bool: Place new window to right of current one
 opt.splitbelow = true -- bool: Place new window below the current one
-
--- [[ Color Column]]
-opt.colorcolumn = "80"

@@ -23,6 +23,8 @@ return {
       ["<leader>gh"] = { desc = "+Hunks" },
       ["<leader>h"] = { desc = "+Harpoon" },
       ["<leader>l"] = { desc = "+LSP" },
+      ["<leader>n"] = { desc = "+Swap Next" },
+      ["<leader>p"] = { desc = "+Swap Previous" },
       ["<leader>u"] = { desc = "+UI" },
       ["<leader>w"] = { desc = "+Windows" },
       ["<leader>x"] = { desc = "+Diagnostics/Quickfix" },

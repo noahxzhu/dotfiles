@@ -1,16 +1,11 @@
+local Util = require "util"
+
 return {
   "nvim-lualine/lualine.nvim",
   event = { "BufReadPre", "BufNewFile" },
   opts = function()
     local icons = require("config").icons
-
-    local function fg(name)
-      return function()
-        ---@type {foreground?:number}?
-        local hl = vim.api.nvim_get_hl_by_name(name, true)
-        return hl and hl.foreground and { fg = string.format("#%06x", hl.foreground) }
-      end
-    end
+    local fg = Util.fg
 
     return {
       options = {
@@ -41,11 +36,27 @@ return {
           },
           { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
           { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
-            -- stylua: ignore
-            {
-              function() return require("nvim-navic").get_location() end,
-              cond = function() return package.loaded["nvim-navic"] and require("nvim-navic").is_available() end,
-            },
+          {
+            "aerial",
+            sep = " ", -- separator between symbols
+            sep_icon = "", -- separator between icon and symbol
+
+            -- The number of symbols to render top-down. In order to render only 'N' last
+            -- symbols, negative numbers may be supplied. For instance, 'depth = -1' can
+            -- be used in order to render only current symbol.
+            depth = 5,
+
+            -- When 'dense' mode is on, icons are not rendered near their symbols. Only
+            -- a single icon that represents the kind of current symbol is rendered at
+            -- the beginning of status line.
+            dense = false,
+
+            -- The separator to be used to separate symbols in dense mode.
+            dense_sep = ".",
+
+            -- Color the symbol icons.
+            colored = true,
+          },
         },
         lualine_x = {
           {

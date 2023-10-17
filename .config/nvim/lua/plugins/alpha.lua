@@ -46,13 +46,6 @@ return {
       })
     end
 
-    -- disable bufferline in alpha
-    vim.api.nvim_create_autocmd("FileType", {
-      group = vim.api.nvim_create_augroup("lazy_alpha", { clear = true }),
-      pattern = "alpha",
-      command = "set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2",
-    })
-
     require("alpha").setup(dashboard.opts)
 
     vim.api.nvim_create_autocmd("User", {

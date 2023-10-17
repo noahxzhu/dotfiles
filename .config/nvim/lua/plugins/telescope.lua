@@ -7,6 +7,7 @@ return {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "ahmedkhalf/project.nvim",
     "ThePrimeagen/harpoon",
+    "stevearc/aerial.nvim",
   },
   keys = {
     { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find Buffers" },
@@ -22,6 +23,7 @@ return {
     { "<leader>fp", "<cmd>Telescope projects<cr>", desc = "Find Projects" },
     { "<leader>fR", "<cmd>Telescope registers<cr>", desc = "Registers" },
     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent File" },
+    { "<leader>fS", "<cmd>Telescope aerial<cr>", desc = "Goto Symbol" },
     { "<leader>fs", "<cmd>Telescope grep_string<cr>", desc = "Find String" },
     { "<leader>ft", "<cmd>Telescope live_grep<cr>", desc = "Find Text" },
   },
@@ -32,6 +34,7 @@ return {
     telescope.load_extension "fzf"
     telescope.load_extension "projects"
     telescope.load_extension "harpoon"
+    telescope.load_extension "aerial"
 
     telescope.setup {
       defaults = {

@@ -6,6 +6,7 @@ return {
     dependencies = {
       "rust-lang/rust.vim",
       "mfussenegger/nvim-dap",
+      "saecki/crates.nvim",
     },
     config = function()
       local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
@@ -24,7 +25,7 @@ return {
             vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "CursorHold", "InsertLeave" }, {
               pattern = { "*.rs" },
               callback = function()
-                local clients = vim.lsp.buf_get_clients()
+                local clients = vim.lsp.get_active_clients()
                 for _, client in pairs(clients) do
                   if client.supports_method "textDocument/codeLens" then
                     pcall(vim.lsp.codelens.refresh)
@@ -78,15 +79,16 @@ return {
   {
     "saecki/crates.nvim",
     lazy = true,
-    tag = "v0.3.0",
+    tag = "v0.4.0",
     event = { "BufRead Cargo.toml" },
     opts = {
       popup = {
-        border = "rounded",
+        -- border = "rounded",
       },
-      null_ls = {
-        enabled = true,
-        name = "crates.nvim",
+      src = {
+        cmp = {
+          enabled = true,
+        },
       },
     },
   },

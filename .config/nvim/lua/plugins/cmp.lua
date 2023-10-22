@@ -71,4 +71,21 @@ return {
       sorting = defaults.sorting,
     }
   end,
+  config = function(_, opts)
+    local cmp = require "cmp"
+    cmp.setup(opts)
+    local function db_completion()
+      cmp.setup.buffer { sources = { { name = "vim-dadbod-completion" } } }
+    end
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = {
+        "sql",
+        "mysql",
+        "plsql",
+      },
+      callback = function()
+        vim.schedule(db_completion)
+      end,
+    })
+  end,
 }

@@ -1,12 +1,10 @@
 return {
   {
     "simrat39/rust-tools.nvim",
-    lazy = true,
     ft = { "rust" },
     dependencies = {
       "rust-lang/rust.vim",
       "mfussenegger/nvim-dap",
-      "saecki/crates.nvim",
     },
     config = function()
       local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
@@ -78,11 +76,10 @@ return {
   },
   {
     "saecki/crates.nvim",
-    lazy = true,
-    tag = "v0.4.0",
     event = { "BufRead Cargo.toml" },
     opts = {
       popup = {
+        autofocus = true,
         -- border = "rounded",
       },
       src = {

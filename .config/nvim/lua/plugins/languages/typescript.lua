@@ -1,7 +1,6 @@
 return {
   {
     "jose-elias-alvarez/typescript.nvim",
-    lazy = true,
     ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
     config = function()
       local opts = {
@@ -36,7 +35,6 @@ return {
   },
   {
     "mxsdev/nvim-dap-vscode-js",
-    lazy = true,
     dependencies = {
       "mfussenegger/nvim-dap",
     },

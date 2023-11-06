@@ -74,6 +74,7 @@ return {
   config = function(_, opts)
     local cmp = require "cmp"
     cmp.setup(opts)
+
     local function db_completion()
       cmp.setup.buffer { sources = { { name = "vim-dadbod-completion" } } }
     end

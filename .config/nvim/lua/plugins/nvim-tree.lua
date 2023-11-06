@@ -1,6 +1,5 @@
 return {
   "nvim-tree/nvim-tree.lua",
-  lazy = true,
   version = "*",
   cmd = {
     "NvimTreeToggle",

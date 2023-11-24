@@ -76,7 +76,7 @@ return {
           },
         },
         lualine_y = {
-          { "encoding", padding = { left = 1, right = 1 } },
+          { "encoding", fmt = string.upper, padding = { left = 1, right = 1 } },
         },
         lualine_z = {
           { "progress", padding = { left = 1, right = 1 } },

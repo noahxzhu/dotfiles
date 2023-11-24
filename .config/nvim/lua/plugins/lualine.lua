@@ -7,6 +7,28 @@ return {
     local icons = require("config").icons
     local fg = Util.fg
 
+    local spaces = function()
+      local shiftwidth = vim.api.nvim_buf_get_option(0, "shiftwidth")
+      return icons.ui.Tab .. " " .. shiftwidth
+    end
+
+    local lsp = function()
+      local buf_clients = vim.lsp.get_active_clients { bufnr = 0 }
+      if #buf_clients == 0 then
+        return icons.ui.Gears .. " LSP Inactive"
+      end
+
+      local buf_client_names = {}
+
+      for _, client in pairs(buf_clients) do
+        table.insert(buf_client_names, client.name)
+      end
+
+      local unique_client_names = table.concat(buf_client_names, ", ")
+
+      return icons.ui.Gears .. " " .. unique_client_names
+    end
+
     return {
       options = {
         theme = "auto",
@@ -22,40 +44,20 @@ return {
         disabled_filetypes = { statusline = { "NvimTree", "dashboard", "lazy", "alpha" } },
       },
       sections = {
-        lualine_a = { "mode" },
-        lualine_b = { "branch" },
+        lualine_a = { { "mode", padding = { left = 1, right = 1 } } },
+        lualine_b = { { "branch", padding = { left = 1, right = 1 } } },
         lualine_c = {
           {
-            "diagnostics",
+            "diff",
             symbols = {
-              error = icons.diagnostics.Error,
-              warn = icons.diagnostics.Warn,
-              info = icons.diagnostics.Info,
-              hint = icons.diagnostics.Hint,
+              added = icons.git.Added,
+              modified = icons.git.Modified,
+              removed = icons.git.Removed,
             },
+            padding = { left = 1, right = 1 },
           },
-          -- { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-          -- { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
         },
         lualine_x = {
-          {
-            function()
-              return require("noice").api.status.command.get()
-            end,
-            cond = function()
-              return package.loaded["noice"] and require("noice").api.status.command.has()
-            end,
-            color = fg "Statement",
-          },
-          {
-            function()
-              return require("noice").api.status.mode.get()
-            end,
-            cond = function()
-              return package.loaded["noice"] and require("noice").api.status.mode.has()
-            end,
-            color = fg "Constant",
-          },
           {
             function()
               return "  " .. require("dap").status()
@@ -64,24 +66,34 @@ return {
               return package.loaded["dap"] and require("dap").status() ~= ""
             end,
             color = fg "Debug",
+            padding = { left = 1, right = 1 },
           },
-          { require("lazy.status").updates, cond = require("lazy.status").has_updates, color = fg "Special" },
           {
-            "diff",
+            "diagnostics",
             symbols = {
-              added = icons.git.Added,
-              modified = icons.git.Modified,
-              removed = icons.git.Removed,
+              error = icons.diagnostics.Error,
+              warn = icons.diagnostics.Warn,
+              info = icons.diagnostics.Info,
+              hint = icons.diagnostics.Hint,
             },
+            padding = { left = 1, right = 1 },
           },
+          {
+            require("lazy.status").updates,
+            cond = require("lazy.status").has_updates,
+            color = fg "Special",
+            padding = { left = 1, right = 1 },
+          },
+          { lsp, padding = { left = 1, right = 1 } },
+          { spaces, padding = { left = 1, right = 1 } },
+          { "encoding", fmt = string.upper, padding = { left = 1, right = 1 } },
+          { "filetype", padding = { left = 1, right = 2 } },
         },
         lualine_y = {
-          { "encoding", fmt = string.upper, padding = { left = 1, right = 1 } },
-          { "filetype", icons_enabled = false, padding = { left = 1, right = 1 } },
+          { "location", padding = { left = 1, right = 1 } },
         },
         lualine_z = {
           { "progress", padding = { left = 1, right = 1 } },
-          { "location", padding = { left = 1, right = 1 } },
         },
       },
     }

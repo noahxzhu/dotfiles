@@ -24,6 +24,18 @@ return {
         table.insert(buf_client_names, client.name)
       end
 
+      local formatters = require("conform").list_formatters()
+      for _, formatter in ipairs(formatters) do
+        if formatter.available then
+          table.insert(buf_client_names, formatter.name)
+        end
+      end
+
+      local linters = require("lint").get_running()
+      for _, linter in ipairs(linters) do
+        table.insert(buf_client_names, linter)
+      end
+
       local unique_client_names = table.concat(buf_client_names, ", ")
 
       return icons.ui.Gears .. " " .. unique_client_names

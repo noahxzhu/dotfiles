@@ -77,6 +77,9 @@ return {
   {
     "saecki/crates.nvim",
     event = { "BufRead Cargo.toml" },
+    dependencies = {
+      "hrsh7th/nvim-cmp",
+    },
     opts = {
       popup = {
         autofocus = true,
@@ -88,5 +91,10 @@ return {
         },
       },
     },
+    config = function(_, opts)
+      require("crates").setup(opts)
+      -- nvim-cmp must be loaded before crates, otherwise we need to register it manually
+      require("crates.src.cmp").setup()
+    end,
   },
 }

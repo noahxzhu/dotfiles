@@ -1,5 +1,6 @@
 return {
   "utilyre/barbecue.nvim",
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "SmiteshP/nvim-navic",
   },

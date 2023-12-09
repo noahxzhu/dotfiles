@@ -134,6 +134,8 @@ return {
         "kotlin-language-server",
         "ktlint",
         "lua-language-server",
+        "markdownlint",
+        "marksman",
         "omnisharp",
         "prettierd",
         "pyright",

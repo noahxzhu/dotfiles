@@ -8,6 +8,7 @@ return {
       javascript = { "eslint_d" },
       javascriptreact = { "eslint_d" },
       kotlin = { "ktlint" },
+      markdown = { "markdownlint" },
       python = { "flake8" },
       typescript = { "eslint_d" },
       typescriptreact = { "eslint_d" },

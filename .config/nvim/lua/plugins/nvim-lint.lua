@@ -13,6 +13,9 @@ return {
       typescriptreact = { "eslint_d" },
     }
 
+    local ktlint = require("lint").linters.ktlint
+    ktlint.args = { "--reporter=json", "--stdin" }
+
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
       group = vim.api.nvim_create_augroup("lazy_lint", { clear = true }),
       callback = function()

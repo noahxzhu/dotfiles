@@ -97,4 +97,16 @@ return {
       require("crates.src.cmp").setup()
     end,
   },
+  {
+    "nvim-neotest/neotest",
+    optional = true,
+    dependencies = {
+      "rouge8/neotest-rust",
+    },
+    opts = {
+      adapters = {
+        ["neotest-rust"] = {},
+      },
+    },
+  },
 }

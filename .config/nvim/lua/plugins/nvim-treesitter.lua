@@ -44,6 +44,7 @@ return {
         "sql",
         "ssh_config",
         "svelte",
+        "swift",
         "toml",
         "tsx",
         "typescript",

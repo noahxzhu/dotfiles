@@ -5,13 +5,9 @@ return {
     local lint = require "lint"
     lint.linters_by_ft = {
       go = { "golangcilint" },
-      javascript = { "eslint_d" },
-      javascriptreact = { "eslint_d" },
       kotlin = { "ktlint" },
       markdown = { "markdownlint" },
       python = { "flake8" },
-      typescript = { "eslint_d" },
-      typescriptreact = { "eslint_d" },
     }
 
     local ktlint = require("lint").linters.ktlint

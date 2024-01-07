@@ -9,6 +9,7 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     opts = {
       ensure_installed = {
+        "astro",
         "bash",
         "c",
         "c_sharp",
@@ -17,6 +18,7 @@ return {
         "css",
         "csv",
         "dockerfile",
+        "glimmer",
         "go",
         "gomod",
         "gowork",
@@ -33,6 +35,7 @@ return {
         "make",
         "markdown",
         "markdown_inline",
+        "php",
         "proto",
         "python",
         "query",

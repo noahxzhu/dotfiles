@@ -119,7 +119,7 @@ return {
         "debugpy",
         "dockerfile-language-server",
         "docker-compose-language-service",
-        "eslint_d",
+        "eslint-lsp",
         "flake8",
         "google-java-format",
         "gradle-language-server",

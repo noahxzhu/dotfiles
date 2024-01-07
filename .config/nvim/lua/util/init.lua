@@ -106,26 +106,6 @@ M.show_documentation = function()
   end
 end
 
-M.lazygit_toggle = function()
-  local Terminal = require("toggleterm.terminal").Terminal
-  local lazygit = Terminal:new {
-    cmd = "lazygit",
-    hidden = true,
-    direction = "float",
-    float_opts = {
-      border = "none",
-      width = 100000,
-      height = 100000,
-    },
-    on_open = function()
-      vim.cmd "startinsert!"
-    end,
-    on_close = function() end,
-    count = 99,
-  }
-  lazygit:toggle()
-end
-
 M.fg = function(name)
   local hl = vim.api.nvim_get_hl and vim.api.nvim_get_hl(0, { name = name })
   local fg = hl and (hl.fg or hl.foreground)

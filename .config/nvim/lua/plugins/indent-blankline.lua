@@ -26,7 +26,7 @@ return {
     end)
 
     require("ibl").setup {
-      indent = { highlight = highlight, char = "│", tab_char = "│" },
+      indent = { highlight = highlight },
       exclude = { filetypes = { "help", "alpha", "dashboard", "NvimTree", "Trouble", "lazy" } },
     }
   end,

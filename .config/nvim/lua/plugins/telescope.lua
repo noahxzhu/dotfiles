@@ -18,7 +18,31 @@ return {
     { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
     { "<leader>fl", "<cmd>Telescope resume<cr>", desc = "Last Search" },
     { "<leader>fM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
-    { "<leader>fm", "<cmd>Telescope harpoon marks<cr>", desc = "Harpoon Marks" },
+    {
+      "<leader>fm",
+      function()
+        local conf = require("telescope.config").values
+        local function toggle_telescope(harpoon_files)
+          local file_paths = {}
+          for _, item in ipairs(harpoon_files.items) do
+            table.insert(file_paths, item.value)
+          end
+
+          require("telescope.pickers")
+            .new({}, {
+              prompt_title = "Harpoon",
+              finder = require("telescope.finders").new_table {
+                results = file_paths,
+              },
+              previewer = conf.file_previewer {},
+              sorter = conf.generic_sorter {},
+            })
+            :find()
+        end
+        toggle_telescope(require("harpoon"):list())
+      end,
+      desc = "Open Harpoon Window",
+    },
     { "<leader>fp", "<cmd>Telescope projects<cr>", desc = "Find Projects" },
     { "<leader>fR", "<cmd>Telescope registers<cr>", desc = "Registers" },
     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent File" },
@@ -32,7 +56,6 @@ return {
 
     telescope.load_extension "fzf"
     telescope.load_extension "projects"
-    telescope.load_extension "harpoon"
     telescope.load_extension "aerial"
 
     telescope.setup {

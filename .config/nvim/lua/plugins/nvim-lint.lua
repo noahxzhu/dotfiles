@@ -7,6 +7,7 @@ return {
       go = { "golangcilint" },
       kotlin = { "ktlint" },
       markdown = { "markdownlint" },
+      proto = { "buf_lint" },
       python = { "flake8" },
     }
 

@@ -110,6 +110,8 @@ return {
     opts = {
       ensure_installed = {
         "bash-language-server",
+        "buf-language-server",
+        "buf",
         "black",
         "clangd",
         "cmake-language-server",

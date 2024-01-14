@@ -5,7 +5,13 @@ export PATH=$HOME/Tools/protoc-25.2/bin:$PATH
 export PATH=$HOME/Tools/pet:$PATH
 
 # z.sh
-. "/opt/homebrew/etc/profile.d/z.sh"
+. $(brew --prefix)/etc/profile.d/z.sh
+
+# MySQL Client
+export PATH=$(brew --prefix)/opt/mysql-client/bin:$PATH
+
+# PostgreSQL Client
+export PATH=$(brew --prefix)/opt/libpq/bin:$PATH
 
 
 # >>> conda initialize >>>

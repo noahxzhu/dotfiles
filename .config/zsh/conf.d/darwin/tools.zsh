@@ -1,5 +1,5 @@
 # Protocol Buffers
-export PATH=$HOME/Tools/protoc-24.3/bin:$PATH
+export PATH=$HOME/Tools/protoc-25.2/bin:$PATH
 
 # Pet 
 export PATH=$HOME/Tools/pet:$PATH

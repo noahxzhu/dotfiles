@@ -31,6 +31,7 @@ return {
       adaptive_size = true,
       width = 40,
       side = "right",
+      number = true,
       preserve_window_proportions = true,
       centralize_selection = true,
       float = {

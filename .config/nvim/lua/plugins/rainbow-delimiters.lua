@@ -3,7 +3,8 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local rainbow_delimiters = require "rainbow-delimiters"
-    require("rainbow-delimiters.setup").setup {
+
+    vim.g.rainbow_delimiters = {
       strategy = {
         [""] = rainbow_delimiters.strategy["global"],
         commonlisp = rainbow_delimiters.strategy["local"],

@@ -18,6 +18,7 @@ return {
         "css",
         "csv",
         "dockerfile",
+        "gitignore",
         "glimmer",
         "go",
         "gomod",

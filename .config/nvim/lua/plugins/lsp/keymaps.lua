@@ -20,6 +20,7 @@ function M.get()
       { "<leader>lf", format, desc = "Format Range", mode = "v", has = "documentRangeFormatting" },
       { "<leader>li", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
       { "<leader>ll", vim.lsp.codelens.run, desc = "CodeLens Action" },
+      { "<leader>lr", "<cmd>LspRestart<cr>", desc = "Lsp Restart" },
       { "]d", M.diagnostic_goto(true), desc = "Next Diagnostic" },
       { "[d", M.diagnostic_goto(false), desc = "Prev Diagnostic" },
       { "]e", M.diagnostic_goto(true, "ERROR"), desc = "Next Error" },

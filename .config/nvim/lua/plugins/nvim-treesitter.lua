@@ -27,6 +27,7 @@ return {
         "graphql",
         "html",
         "http",
+        "ini",
         "java",
         "javascript",
         "json",

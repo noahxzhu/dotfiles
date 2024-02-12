@@ -43,6 +43,18 @@ vim.list_extend(
   )
 )
 
+-- Read runtimes from system env
+local runtimes = {}
+local java_runtimes_json = os.getenv "JAVA_RUNTIMES"
+if java_runtimes_json then
+  local java_runtimes_table = vim.fn.json_decode(java_runtimes_json)
+  if java_runtimes_table then
+    for name, path in pairs(java_runtimes_table) do
+      table.insert(runtimes, { name = name, path = path })
+    end
+  end
+end
+
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
   -- The command that starts the language server
@@ -111,16 +123,7 @@ local config = {
       },
       configuration = {
         updateBuildConfiguration = "interactive",
-        runtimes = {
-          {
-            name = "JavaSE-17",
-            path = os.getenv "NVIM_JDK_17_HOME",
-          },
-          {
-            name = "JavaSE-21",
-            path = os.getenv "NVIM_JDK_21_HOME",
-          },
-        },
+        runtimes = runtimes,
       },
       maven = {
         downloadSources = true,

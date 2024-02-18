@@ -1,6 +1,6 @@
 local workspaces = {}
 
-local vaults_json = os.getenv "OBSIDIAN_VAULTS"
+local vaults_json = vim.env.OBSIDIAN_VAULTS
 if vaults_json then
   local vaults_table = vim.fn.json_decode(vaults_json)
   if vaults_table then

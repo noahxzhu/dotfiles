@@ -2,7 +2,6 @@ local Config = require "config"
 
 return {
   "stevearc/aerial.nvim",
-  lazy = true,
   event = { "BufReadPost", "BufNewFile", "BufWritePre" },
   keys = {
     { "<leader>cs", "<cmd>AerialToggle<cr>", desc = "Aerial" },

@@ -45,7 +45,7 @@ vim.list_extend(
 
 -- Read runtimes from system env
 local runtimes = {}
-local java_runtimes_json = os.getenv "JAVA_RUNTIMES"
+local java_runtimes_json = vim.env.JAVA_RUNTIMES
 if java_runtimes_json then
   local java_runtimes_table = vim.fn.json_decode(java_runtimes_json)
   if java_runtimes_table then
@@ -64,7 +64,7 @@ local config = {
     -- 💀
     -- "java", -- or '/path/to/java11_or_newer/bin/java'
     -- jdk_root_path .. "jdk-17.0.7+7/Contents/Home/bin/java",
-    os.getenv "NVIM_DEFAULT_JDK",
+    vim.env.NVIM_DEFAULT_JDK,
     -- depends on if `java` is in your $PATH env variable and if it points to the right version.
 
     "-Declipse.application=org.eclipse.jdt.ls.core.id1",

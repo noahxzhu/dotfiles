@@ -1,1 +1,3 @@
-return { "MunifTanjim/nui.nvim", lazy = true }
+return {
+  "MunifTanjim/nui.nvim",
+}

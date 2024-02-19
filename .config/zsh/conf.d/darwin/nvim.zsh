@@ -12,7 +12,7 @@ export JAVA_RUNTIMES="{
 
 
 # Obsidian settings
-OBSIDIAN_VAULT_NOAH="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Noah's Vault"
+export OBSIDIAN_VAULT_NOAH="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Noah's Vault"
 
 # Add multiple vaults if you need
 export OBSIDIAN_VAULTS="{

@@ -18,6 +18,7 @@ return {
       dashboard.button("f", require("config").icons.ui.FindFile .. " Find file", "<cmd>Telescope find_files<cr>"),
       dashboard.button("n", require("config").icons.ui.NewFile .. " New file", "<cmd>ene!<cr>"),
       dashboard.button("p", require("config").icons.git.Repo .. " Find project", "<cmd>Telescope projects<cr>"),
+      dashboard.button("o", require("config").icons.ui.Obsidian .. " Obsidian", "<cmd>e $OBSIDIAN_VAULT_NOAH<cr>"),
       dashboard.button("r", require("config").icons.ui.History .. " Recent files", "<cmd>Telescope oldfiles<cr>"),
       dashboard.button("t", require("config").icons.ui.List .. " Find text", "<cmd>Telescope live_grep<cr>"),
       dashboard.button("c", require("config").icons.ui.Gear .. " Config", "<cmd>e $MYVIMRC<cr>"),

@@ -135,6 +135,7 @@ M.icons = {
     Lock = " ",
     NewFile = " ",
     Note = " ",
+    Obsidian = "󱚌 ",
     Package = " ",
     Pencil = "󰏫 ",
     Plus = " ",

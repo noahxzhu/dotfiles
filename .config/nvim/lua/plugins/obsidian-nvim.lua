@@ -14,6 +14,14 @@ return {
   "epwalsh/obsidian.nvim",
   version = "*",
   ft = "markdown",
+  keys = {
+    {
+      "<leader>co",
+      ft = "markdown",
+      "<cmd>ObsidianOpen<cr>",
+      desc = "Open Obsidian",
+    },
+  },
   opts = {
     workspaces = workspaces,
   },

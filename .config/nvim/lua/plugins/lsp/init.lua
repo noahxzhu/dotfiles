@@ -110,6 +110,7 @@ return {
     opts = {
       ensure_installed = {
         "bash-language-server",
+        "beancount-language-server",
         "buf-language-server",
         "buf",
         "black",

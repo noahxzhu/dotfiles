@@ -1,3 +1,4 @@
+local beancount = require "plugins.lsp.opts.beancount"
 local clangd = require "plugins.lsp.opts.clangd"
 local go = require "plugins.lsp.opts.go"
 local java = require "plugins.lsp.opts.java"
@@ -10,4 +11,4 @@ local rust = require "plugins.lsp.opts.rust"
 local typescript = require "plugins.lsp.opts.typescript"
 local zig = require "plugins.lsp.opts.zig"
 
-return vim.tbl_extend("force", clangd, go, java, json, lua, mojo, proto, python, rust, typescript, zig)
+return vim.tbl_extend("force", beancount, clangd, go, java, json, lua, mojo, proto, python, rust, typescript, zig)

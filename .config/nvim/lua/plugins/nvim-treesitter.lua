@@ -11,6 +11,7 @@ return {
       ensure_installed = {
         "astro",
         "bash",
+        "beancount",
         "c",
         "c_sharp",
         "cmake",

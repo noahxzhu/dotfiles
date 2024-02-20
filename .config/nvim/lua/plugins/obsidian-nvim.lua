@@ -24,5 +24,8 @@ return {
   },
   opts = {
     workspaces = workspaces,
+    ui = {
+      enable = false,
+    },
   },
 }

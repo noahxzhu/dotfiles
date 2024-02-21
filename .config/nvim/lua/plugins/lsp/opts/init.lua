@@ -1,14 +1,23 @@
-local beancount = require "plugins.lsp.opts.beancount"
-local clangd = require "plugins.lsp.opts.clangd"
-local go = require "plugins.lsp.opts.go"
-local java = require "plugins.lsp.opts.java"
-local json = require "plugins.lsp.opts.json"
-local lua = require "plugins.lsp.opts.lua"
-local mojo = require "plugins.lsp.opts.mojo"
-local proto = require "plugins.lsp.opts.proto"
-local python = require "plugins.lsp.opts.python"
-local rust = require "plugins.lsp.opts.rust"
-local typescript = require "plugins.lsp.opts.typescript"
-local zig = require "plugins.lsp.opts.zig"
+local load_opts = function()
+  local result = {}
 
-return vim.tbl_extend("force", beancount, clangd, go, java, json, lua, mojo, proto, python, rust, typescript, zig)
+  local opts_path = vim.fn.stdpath "config" .. "/lua/plugins/lsp/opts"
+  local scan_result = vim.loop.fs_scandir(opts_path)
+
+  while true do
+    local name = vim.loop.fs_scandir_next(scan_result)
+    if not name then
+      break
+    end
+
+    if name ~= "init.lua" then
+      local module_name = "plugins.lsp.opts." .. name:gsub("%.lua$", "")
+      local module = require(module_name)
+      result = vim.tbl_extend("force", result, module)
+    end
+  end
+
+  return result
+end
+
+return load_opts()

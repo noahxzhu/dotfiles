@@ -14,9 +14,6 @@ return {
 
     local lsp = function()
       local buf_clients = vim.lsp.get_active_clients { bufnr = 0 }
-      if #buf_clients == 0 then
-        return icons.ui.Gears .. " LSP Inactive"
-      end
 
       local buf_client_names = {}
 
@@ -34,6 +31,10 @@ return {
       local linters = require("lint").get_running()
       for _, linter in ipairs(linters) do
         table.insert(buf_client_names, linter)
+      end
+
+      if #buf_client_names == 0 then
+        return icons.ui.Gears .. " LSP Inactive"
       end
 
       local unique_client_names = table.concat(buf_client_names, ", ")

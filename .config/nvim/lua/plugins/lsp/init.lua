@@ -145,6 +145,8 @@ return {
         "shfmt",
         "stylua",
         "tailwindcss-language-server",
+        "terraform-ls",
+        "tflint",
         "vscode-java-decompiler",
       },
     },

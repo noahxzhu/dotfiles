@@ -33,6 +33,7 @@ return {
         "java",
         "javascript",
         "json",
+        "jsonc",
         "kotlin",
         "lua",
         "luap",

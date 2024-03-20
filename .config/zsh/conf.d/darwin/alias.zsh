@@ -1,6 +1,5 @@
 # Alias
 alias lg="lazygit"
-alias gi="gitui"
 
 alias ta="tmux a"
 alias tat="tmux a -t"

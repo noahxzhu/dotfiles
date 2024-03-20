@@ -17,6 +17,9 @@ export PATH=$(brew --prefix)/opt/libpq/bin:$PATH
 # Baidu Disk
 export PATH=$HOME/Tools/baidu:$PATH
 
+# Atuin plugin 
+eval "$(atuin init zsh)"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('$HOME/Tools/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"

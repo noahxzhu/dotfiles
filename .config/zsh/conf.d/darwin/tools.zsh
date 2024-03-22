@@ -4,9 +4,6 @@ export PATH=$HOME/Tools/protoc-25.2/bin:$PATH
 # Pet 
 export PATH=$HOME/Tools/pet:$PATH
 
-# z.sh
-. $(brew --prefix)/etc/profile.d/z.sh
-
 # MySQL Client
 export PATH=$(brew --prefix)/opt/mysql-client/bin:$PATH
 
@@ -19,6 +16,9 @@ export PATH=$HOME/Tools/baidu:$PATH
 
 # Atuin plugin 
 eval "$(atuin init zsh)"
+
+# Zoxide
+eval "$(zoxide init zsh)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

@@ -51,6 +51,7 @@ return {
         "scss",
         "sql",
         "ssh_config",
+        "starlark",
         "svelte",
         "swift",
         "terraform",

@@ -1,0 +1,17 @@
+{
+  "New async function w/ return": {
+    "prefix": "adeft",
+    "body": "async def ${1:fname}(${2:arg}) -> ${3:return_type}:\n\t${4:pass}$0",
+    "description": "Code snippet for async function definition."
+  },
+  "New async method": {
+    "prefix": "adefs",
+    "body": "async def ${1:mname}(self, ${2:arg}):\n\t${3:pass}$0",
+    "description": "Code snippet for async class method definition."
+  },
+  "New async method w/ return": {
+    "prefix": "adefst",
+    "body": "async def ${1:mname}(self, ${2:arg}) -> ${3:return_type}:\n\t${4:pass}$0",
+    "description": "Code snippet for async class method definition."
+  }
+}

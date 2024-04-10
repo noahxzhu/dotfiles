@@ -42,3 +42,6 @@ opt.listchars:append { tab = "  ", trail = " " } -- table: Behaviors of the list
 -- [[ Splits ]]
 opt.splitright = true -- bool: Place new window to right of current one
 opt.splitbelow = true -- bool: Place new window below the current one
+
+-- [[ Snippets ]]
+opt.runtimepath:append "~/.config/nvim/snippets"

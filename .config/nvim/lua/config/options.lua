@@ -44,4 +44,4 @@ opt.splitright = true -- bool: Place new window to right of current one
 opt.splitbelow = true -- bool: Place new window below the current one
 
 -- [[ Snippets ]]
-opt.runtimepath:append "~/.config/nvim/snippets"
+opt.runtimepath:append "~/.config/nvim/snippets" -- str: Path for custom snippets

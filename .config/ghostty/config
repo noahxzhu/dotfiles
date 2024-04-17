@@ -1,0 +1,20 @@
+# title = "Ghostty 👻"
+font-family = Comic Code
+font-size = 14
+theme = catppuccin-mocha
+
+window-decoration = true
+
+background-opacity = 0.9
+background-blur-radius = 10
+unfocused-split-opacity = 0.95
+
+macos-non-native-fullscreen = false
+macos-titlebar-tabs = true
+
+adjust-underline-position = 6
+adjust-underline-thickness = 150%
+
+keybind = super+j=text:\x01\x54
+keybind = super+k=text:\x01\x54
+

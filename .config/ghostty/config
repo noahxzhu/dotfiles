@@ -1,5 +1,6 @@
 # title = "Ghostty 👻"
-font-family = Comic Code
+# font-family = Comic Code
+font-family = JetBrains Mono NL
 font-size = 14
 theme = catppuccin-mocha
 

@@ -11,7 +11,6 @@ background-blur-radius = 10
 unfocused-split-opacity = 0.95
 
 macos-non-native-fullscreen = false
-macos-titlebar-tabs = true
 
 adjust-underline-position = 6
 adjust-underline-thickness = 150%

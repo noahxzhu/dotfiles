@@ -1,35 +1,25 @@
 local wk = require "which-key"
 
-local opts = {
-  mode = "n", -- NORMAL mode
-  prefix = "<leader>",
-  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
-}
-
-local mappings = {
-  C = {
-    name = "Rust",
-    b = { "<cmd>RustLsp rebuildProcMacros<cr>", "Rebuild Macro" },
-    c = { "<cmd>RustLsp openCargo<cr>", "Open Cargo" },
-    D = { "<cmd>RustLsp renderDiagnostic<cr>", "Diagnostic" },
-    d = { "<cmd>RustLsp debuggables<cr>", "Debuggables" },
-    e = { "<cmd>RustLsp explainError<cr>", "Explain Error" },
-    H = { "<cmd>RustLsp hover range<cr>", "Hover Range" },
-    h = { "<cmd>RustLsp hover actions<cr>", "Hover Actions" },
-    j = { "<cmd>RustLsp moveItem down<cr>", "Move Item Down" },
-    k = { "<cmd>RustLsp moveItem up<cr>", "Move Item Up" },
-    l = { "<cmd>RustLsp joinLines<cr>", "Join Lines" },
-    m = { "<cmd>RustLsp expandMacro<cr>", "Expand Macro" },
-    o = { "<cmd>RustLsp externalDocs<cr>", "Open External Docs" },
-    p = { "<cmd>RustLsp parentModule<cr>", "Parent Module" },
-    R = { "<cmd>RustLsp reloadWorkspace<cr>", "Reload Workspace" },
-    r = { "<cmd>RustLsp runnables<cr>", "Runnables" },
-    T = { "<cmd>RustLsp syntaxTree<cr>", "View Syntax Tree" },
-    v = { "<cmd>RustLsp crateGraph [backend [output]]<cr>", "View Crate Graph" },
+wk.add {
+  {
+    mode = { "n" },
+    { "<leader>C", group = "Rust" },
+    { "<leader>Cb", "<cmd>RustLsp rebuildProcMacros<cr>", desc = "Rebuild Macro" },
+    { "<leader>Cc", "<cmd>RustLsp openCargo<cr>", desc = "Open Cargo" },
+    { "<leader>CD", "<cmd>RustLsp renderDiagnostic<cr>", desc = "Diagnostic" },
+    { "<leader>Cd", "<cmd>RustLsp debuggables<cr>", desc = "Debuggables" },
+    { "<leader>Ce", "<cmd>RustLsp explainError<cr>", desc = "Explain Error" },
+    { "<leader>CH", "<cmd>RustLsp hover range<cr>", desc = "Hover Range" },
+    { "<leader>Ch", "<cmd>RustLsp hover actions<cr>", desc = "Hover Actions" },
+    { "<leader>Cj", "<cmd>RustLsp moveItem down<cr>", desc = "Move Item Down" },
+    { "<leader>Ck", "<cmd>RustLsp moveItem up<cr>", desc = "Move Item Up" },
+    { "<leader>Cl", "<cmd>RustLsp joinLines<cr>", desc = "Join Lines" },
+    { "<leader>Cm", "<cmd>RustLsp expandMacro<cr>", desc = "Expand Macro" },
+    { "<leader>Co", "<cmd>RustLsp externalDocs<cr>", desc = "Open External Docs" },
+    { "<leader>Cp", "<cmd>RustLsp parentModule<cr>", desc = "Parent Module" },
+    { "<leader>CR", "<cmd>RustLsp reloadWorkspace<cr>", desc = "Reload Workspace" },
+    { "<leader>Cr", "<cmd>RustLsp runnables<cr>", desc = "Runnables" },
+    { "<leader>CT", "<cmd>RustLsp syntaxTree<cr>", desc = "View Syntax Tree" },
+    { "<leader>Cv", "<cmd>RustLsp crateGraph [backend [output]]<cr>", desc = "View Crate Graph" },
   },
 }
-
-wk.register(mappings, opts)

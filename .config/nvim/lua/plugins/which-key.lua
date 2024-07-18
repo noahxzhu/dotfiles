@@ -1,35 +1,32 @@
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
-  opts = {
-    plugins = { spelling = true },
-  },
-  config = function(_, opts)
+  config = function()
     vim.o.timeout = true
     vim.o.timeoutlen = 300
     local wk = require "which-key"
-    wk.setup(opts)
-    local keymaps = {
-      mode = { "n", "v" },
-      ["g"] = { desc = "+Goto" },
-      ["]"] = { desc = "+Next" },
-      ["["] = { desc = "+Prev" },
-      ["<leader><tab>"] = { desc = "+Tabs" },
-      ["<leader>c"] = { desc = "+Code" },
-      ["<leader>d"] = { desc = "+DAP" },
-      ["<leader>da"] = { desc = "+Advanced BP" },
-      ["<leader>f"] = { desc = "+File/Find" },
-      ["<leader>g"] = { desc = "+Git" },
-      ["<leader>gh"] = { desc = "+Hunks" },
-      ["<leader>h"] = { desc = "+Harpoon" },
-      ["<leader>l"] = { desc = "+LSP" },
-      ["<leader>n"] = { desc = "+Swap Next" },
-      ["<leader>p"] = { desc = "+Swap Previous" },
-      ["<leader>t"] = { name = "+Test" },
-      ["<leader>u"] = { desc = "+UI" },
-      ["<leader>w"] = { desc = "+Windows" },
-      ["<leader>x"] = { desc = "+Diagnostics/Quickfix" },
+    wk.add {
+      {
+        mode = { "n", "v" },
+        { "g", group = "+Goto" },
+        { "]", group = "+Next" },
+        { "[", group = "+Prev" },
+        { "<leader><tab>", group = "+Tabs" },
+        { "<leader>c", group = "+Code" },
+        { "<leader>d", group = "+DAP" },
+        { "<leader>da", group = "+Advanced BP" },
+        { "<leader>f", group = "+File/Find" },
+        { "<leader>g", group = "+Git" },
+        { "<leader>gh", group = "+Hunks" },
+        { "<leader>h", group = "+Harpoon" },
+        { "<leader>l", group = "+LSP" },
+        { "<leader>n", group = "+Swap Next" },
+        { "<leader>p", group = "+Swap Previous" },
+        { "<leader>t", group = "+Test" },
+        { "<leader>u", group = "+UI" },
+        { "<leader>w", group = "+Windows" },
+        { "<leader>x", group = "+Diagnostics/Quickfix" },
+      },
     }
-    wk.register(keymaps)
   end,
 }

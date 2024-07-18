@@ -1,27 +1,17 @@
 local wk = require "which-key"
 
-local opts = {
-  mode = "n", -- NORMAL mode
-  prefix = "<leader>",
-  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
-}
-
-local mappings = {
-  C = {
-    name = "Go",
-    A = { "<cmd>GoTestsAll<cr>", "Add All Tests" },
-    a = { "<cmd>GoTestAdd<cr>", "Add Test" },
-    c = { "<cmd>GoCmt<cr>", "Generate Comment" },
-    e = { "<cmd>GoTestsExp<cr>", "Add Exported Tests" },
-    f = { "<cmd>GoMod tidy<cr>", "Tidy" },
-    G = { "<cmd>GoGenerate %<cr>", "Go Generate File" },
-    g = { "<cmd>GoGenerate<cr>", "Go Generate" },
-    i = { "<cmd>GoInstallDeps<cr>", "Install Go Dependencies" },
-    t = { "<cmd>lua require('dap-go').debug_test()<cr>", "Debug Test" },
+wk.add {
+  {
+    mode = { "n" },
+    { "<leader>C", group = "Go" },
+    { "<leader>CA", "<cmd>GoTestsAll<cr>", desc = "Add All Tests" },
+    { "<leader>Ca", "<cmd>GoTestAdd<cr>", desc = "Add Test" },
+    { "<leader>Cc", "<cmd>GoCmt<cr>", desc = "Generate Comment" },
+    { "<leader>Ce", "<cmd>GoTestsExp<cr>", desc = "Add Exported Tests" },
+    { "<leader>Cf", "<cmd>GoMod tidy<cr>", desc = "Tidy" },
+    { "<leader>CG", "<cmd>GoGenerate %<cr>", desc = "Go Generate File" },
+    { "<leader>Cg", "<cmd>GoGenerate<cr>", desc = "Go Generate" },
+    { "<leader>Ci", "<cmd>GoInstallDeps<cr>", desc = "Install Go Dependencies" },
+    { "<leader>Ct", "<cmd>lua require('dap-go').debug_test()<cr>", desc = "Debug Test" },
   },
 }
-
-wk.register(mappings, opts)

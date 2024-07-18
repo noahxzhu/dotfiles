@@ -8,12 +8,12 @@ return {
     local fg = Util.fg
 
     local spaces = function()
-      local shiftwidth = vim.api.nvim_buf_get_option(0, "shiftwidth")
+      local shiftwidth = vim.api.nvim_get_option_value "shiftwidth"
       return icons.ui.Tab .. " " .. shiftwidth
     end
 
     local lsp = function()
-      local buf_clients = vim.lsp.get_active_clients { bufnr = 0 }
+      local buf_clients = vim.lsp.get_clients { bufnr = 0 }
 
       local buf_client_names = {}
 

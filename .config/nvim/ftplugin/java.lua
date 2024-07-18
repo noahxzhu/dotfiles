@@ -219,44 +219,25 @@ vim.cmd [[command! -buffer JdtUpdateConfig lua require('jdtls').update_project_c
 
 local wk = require "which-key"
 
-local opts = {
-  mode = "n", -- NORMAL mode
-  prefix = "<leader>",
-  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
-}
-
-local vopts = {
-  mode = "v", -- VISUAL mode
-  prefix = "<leader>",
-  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
-}
-
-local mappings = {
-  C = {
-    name = "Java",
-    c = { "<cmd>lua require'jdtls'.extract_constant()<cr>", "Extract Constant" },
-    o = { "<cmd>lua require'jdtls'.organize_imports()<cr>", "Organize Imports" },
-    T = { "<cmd>lua require'jdtls'.test_class()<cr>", "Test Class" },
-    t = { "<cmd>lua require'jdtls'.test_nearest_method()<cr>", "Test Method" },
-    u = { "<cmd>JdtUpdateConfig<cr>", "Update Config" },
-    v = { "<cmd>lua require'jdtls'.extract_variable()<cr>", "Extract Variable" },
+wk.add {
+  {
+    mode = { "n" },
+    { "<leader>C", group = "Java" },
+    { "<leader>Cc", "<cmd>lua require'jdtls'.extract_constant()<cr>", desc = "Extract Constant" },
+    { "<leader>Co", "<cmd>lua require'jdtls'.organize_imports()<cr>", desc = "Organize Imports" },
+    { "<leader>CT", "<cmd>lua require'jdtls'.test_class()<cr>", desc = "Test Class" },
+    { "<leader>Ct", "<cmd>lua require'jdtls'.test_nearest_method()<cr>", desc = "Test Method" },
+    { "<leader>Cu", "<cmd>JdtUpdateConfig<cr>", desc = "Update Config" },
+    { "<leader>Cv", "<cmd>lua require'jdtls'.extract_variable()<cr>", desc = "Extract Variable" },
   },
 }
 
-local vmappings = {
-  C = {
-    name = "Java",
-    m = { "<esc><cmd>lua require'jdtls'.extract_method(true)<cr>", "Extract Method" },
-    c = { "<esc><cmd>lua require'jdtls'.extract_constant(true)<cr>", "Extract Constant" },
-    v = { "<esc><cmd>lua require'jdtls'.extract_variable(true)<cr>", "Extract Variable" },
+wk.add {
+  {
+    mode = { "v" },
+    { "<leader>C", group = "Java" },
+    { "<leader>Cm", "<esc><cmd>lua require'jdtls'.extract_method(true)<cr>", desc = "Extract Method" },
+    { "<leader>Cc", "<esc><cmd>lua require'jdtls'.extract_constant(true)<cr>", desc = "Extract Constant" },
+    { "<leader>Cv", "<esc><cmd>lua require'jdtls'.extract_variable(true)<cr>", desc = "Extract Variable" },
   },
 }
-
-wk.register(mappings, opts)
-wk.register(vmappings, vopts)

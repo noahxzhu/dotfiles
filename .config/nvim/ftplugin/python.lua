@@ -1,21 +1,11 @@
 local wk = require "which-key"
 
-local opts = {
-  mode = "n", -- NORMAL mode
-  prefix = "<leader>",
-  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
-}
-
-local mappings = {
-  C = {
-    name = "Python",
-    d = { "<cmd>lua require('dap-python').debug_selection()<cr>", "Debug Selection" },
-    T = { "<cmd>lua require('dap-python').test_class()<cr>", "Test Class" },
-    t = { "<cmd>lua require('dap-python').test_method()<cr>", "Test Method" },
+wk.add {
+  {
+    mode = { "n" },
+    { "<leader>C", group = "Python" },
+    { "<leader>Cd", "<cmd>lua require('dap-python').debug_selection()<cr>", desc = "Debug Selection" },
+    { "<leader>CT", "<cmd>lua require('dap-python').test_class()<cr>", desc = "Test Class" },
+    { "<leader>Ct", "<cmd>lua require('dap-python').test_method()<cr>", desc = "Test Method" },
   },
 }
-
-wk.register(mappings, opts)

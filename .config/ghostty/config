@@ -6,7 +6,7 @@ theme = catppuccin-mocha
 
 window-decoration = true
 
-background-opacity = 0.9
+background-opacity = 0.85
 background-blur-radius = 10
 unfocused-split-opacity = 0.95
 

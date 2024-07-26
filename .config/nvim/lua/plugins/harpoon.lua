@@ -5,7 +5,7 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   -- stylua: ignore
   keys = {
-    { "<leader>ha", mode = { "n" }, function() require("harpoon"):list():append() end, desc = "Add File" },
+    { "<leader>ha", mode = { "n" }, function() require("harpoon"):list():add() end, desc = "Add File" },
     { "<leader>hn", mode = { "n" }, function() require("harpoon"):list():next() end, desc = "Nav Next" },
     { "<leader>hp", mode = { "n" }, function() require("harpoon"):list():prev() end, desc = "Nav Prev" },
     { "<leader>ht", mode = { "n" }, function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end, desc = "Toggle Quick Menu" },

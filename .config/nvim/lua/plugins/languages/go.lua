@@ -7,7 +7,6 @@ return {
     },
     ft = { "go" },
     config = function()
-      require("gopher.dap").setup()
       require("dap-go").setup()
     end,
   },

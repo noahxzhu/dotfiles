@@ -1,6 +1,6 @@
 local M = {}
 
-M.tsserver = {
+M.ts_ls = {
   mason = false,
   skip_setup = true,
 }

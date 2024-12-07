@@ -3,7 +3,6 @@
 ```bash
 ln -s path/to/dotfiles/.config ~/.config
 ln -s path/to/dotfiles/.zshrc ~/.zshrc
-ln -s path/to/dotfiles/.tmux.conf ~/.tmux.conf
 ```
 
 ## Set the following system environment variables for Java configuration

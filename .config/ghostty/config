@@ -1,8 +1,9 @@
 # title = "Ghostty 👻"
-# font-family = Comic Code
-font-family = JetBrains Mono NL
+font-family = Comic Code
+# font-family = JetBrains Mono NL
 font-size = 14
 theme = catppuccin-mocha
+# font-thicken = true
 
 window-decoration = true
 
@@ -10,10 +11,13 @@ background-opacity = 0.85
 background-blur-radius = 10
 unfocused-split-opacity = 0.95
 
-macos-non-native-fullscreen = false
+# macos-non-native-fullscreen = false
+macos-titlebar-style = hidden
 
-adjust-underline-position = 6
+adjust-underline-position = 9
 adjust-underline-thickness = 150%
+adjust-overline-thickness = 150%
+adjust-cell-height = 38%
 
 keybind = super+j=text:\x01\x54
 keybind = super+k=text:\x01\x54

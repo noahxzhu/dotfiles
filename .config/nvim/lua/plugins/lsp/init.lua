@@ -73,7 +73,7 @@ return {
           capabilities = vim.deepcopy(capabilities),
         }, servers[server] or {})
 
-        require("lspconfig")[server].setup(server_opts)
+        vim.lsp.config(server, server_opts)
       end
 
       local have_mason, mlsp = pcall(require, "mason-lspconfig")
@@ -83,20 +83,26 @@ return {
       end
 
       local ensure_installed = {}
+      local exclude_servers = {}
       for server, server_opts in pairs(servers) do
+        setup(server)
+        -- exclude all manual setup servers
+        exclude_servers[#exclude_servers + 1] = server
         if server_opts then
           server_opts = server_opts == true and {} or server_opts
-          -- run manual setup if mason=false or if this is a server that cannot be installed with mason-lspconfig
-          if server_opts.mason == false or not vim.tbl_contains(all_mslp_servers, server) then
-            setup(server)
-          else
+          if server_opts.mason ~= false and vim.tbl_contains(all_mslp_servers, server) then
             ensure_installed[#ensure_installed + 1] = server
           end
         end
       end
 
       if have_mason then
-        mlsp.setup { ensure_installed = ensure_installed, handlers = { setup } }
+        mlsp.setup {
+          ensure_installed = ensure_installed,
+          automatic_enable = {
+            exclude = exclude_servers,
+          },
+        }
       end
     end,
   },

@@ -7,8 +7,8 @@ return {
     dependencies = {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
       "folke/neodev.nvim",
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
+      "mason-org/mason.nvim",
+      "mason-org/mason-lspconfig.nvim",
       {
         "hrsh7th/cmp-nvim-lsp",
         cond = function()
@@ -79,7 +79,7 @@ return {
       local have_mason, mlsp = pcall(require, "mason-lspconfig")
       local all_mslp_servers = {}
       if have_mason then
-        all_mslp_servers = vim.tbl_keys(require("mason-lspconfig.mappings.server").lspconfig_to_package)
+        all_mslp_servers = vim.tbl_keys(require("mason-lspconfig").get_mappings().lspconfig_to_package)
       end
 
       local ensure_installed = {}
@@ -96,15 +96,14 @@ return {
       end
 
       if have_mason then
-        mlsp.setup { ensure_installed = ensure_installed }
-        mlsp.setup_handlers { setup }
+        mlsp.setup { ensure_installed = ensure_installed, handlers = { setup } }
       end
     end,
   },
 
   -- cmdline tools and lsp servers
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     cmd = "Mason",
     keys = { { "<leader>lm", "<cmd>Mason<cr>", desc = "Mason" } },
     opts = {

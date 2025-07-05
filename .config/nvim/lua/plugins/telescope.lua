@@ -4,7 +4,7 @@ return {
   cmd = "Telescope",
   dependencies = {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-    "ahmedkhalf/project.nvim",
+    "noahxzhu/project.nvim",
     "ThePrimeagen/harpoon",
     "stevearc/aerial.nvim",
   },

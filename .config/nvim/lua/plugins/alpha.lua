@@ -1,5 +1,5 @@
 return {
-  "goolord/alpha-nvim",
+  "noahxzhu/alpha-nvim",
   event = "VimEnter",
   opts = function()
     local dashboard = require "alpha.themes.dashboard"

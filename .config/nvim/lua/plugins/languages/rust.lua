@@ -16,7 +16,7 @@ return {
                 callback = function()
                   local clients = vim.lsp.get_clients()
                   for _, client in pairs(clients) do
-                    if client.supports_method "textDocument/codeLens" then
+                    if client:supports_method "textDocument/codeLens" then
                       pcall(vim.lsp.codelens.refresh)
                       return
                     end
